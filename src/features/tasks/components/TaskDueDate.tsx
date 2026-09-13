@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { useMemo } from 'react'
 
 import type { TaskStatus } from '../types/task'
+import { getTaskDeadlineState } from '../utils/getTaskDeadlineState'
 
 type Props = {
   dueDate: string | null
@@ -46,12 +47,11 @@ export function TaskDueDate({ dueDate, status }: Props) {
   }
 
   const date = parseDatabaseDate(dueDate)
-  const today = startOfDay(new Date())
-  const daysUntilDue = differenceInDays(today, date)
+  const { state, daysUntilDue } = getTaskDeadlineState(dueDate, status)
 
   const formattedDate = formatter.format(date)
 
-  if (status === 'done') {
+  if (state === 'completed') {
     return (
       <div className="flex items-center gap-1.5 whitespace-nowrap text-muted-foreground">
         <CalendarDays aria-hidden="true" className="size-4" />
@@ -61,7 +61,7 @@ export function TaskDueDate({ dueDate, status }: Props) {
     )
   }
 
-  if (daysUntilDue < 0) {
+  if (state === 'overdue') {
     return (
       <div className="flex flex-col gap-1">
         <span className="inline-flex w-fit rounded-full bg-red-500/10 px-2.5 py-1 text-xs font-medium text-red-700 dark:text-red-300">
@@ -75,7 +75,7 @@ export function TaskDueDate({ dueDate, status }: Props) {
     )
   }
 
-  if (daysUntilDue === 0) {
+  if (state === 'today') {
     return (
       <div className="flex flex-col gap-1">
         <span className="inline-flex w-fit rounded-full bg-red-500/10 px-2.5 py-1 text-xs font-medium text-red-700 dark:text-red-300">
@@ -89,7 +89,7 @@ export function TaskDueDate({ dueDate, status }: Props) {
     )
   }
 
-  if (daysUntilDue === 1) {
+  if (state === 'tomorrow') {
     return (
       <div className="flex flex-col gap-1">
         <span className="inline-flex w-fit rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-medium text-amber-700 dark:text-amber-300">
@@ -103,7 +103,7 @@ export function TaskDueDate({ dueDate, status }: Props) {
     )
   }
 
-  if (daysUntilDue <= 7) {
+  if (state === 'soon' && daysUntilDue !== null) {
     return (
       <div className="flex flex-col gap-1">
         <span className="inline-flex w-fit rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-medium text-amber-700 dark:text-amber-300">

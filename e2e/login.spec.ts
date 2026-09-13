@@ -1,5 +1,12 @@
 import { expect, test } from '@playwright/test'
 
+test.use({
+  storageState: {
+    cookies: [],
+    origins: [],
+  },
+})
+
 test.describe('login page', () => {
   test('renders the login page in English', async ({ page }) => {
     await page.goto('/en/login')

@@ -1,4 +1,7 @@
+import { loadEnvConfig } from '@next/env'
 import { defineConfig, devices } from '@playwright/test'
+
+loadEnvConfig(process.cwd())
 
 export default defineConfig({
   testDir: './e2e',
@@ -17,10 +20,17 @@ export default defineConfig({
 
   projects: [
     {
+      name: 'setup',
+      testMatch: /.*\.setup\.ts/,
+    },
+    {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/user.json',
       },
+      dependencies: ['setup'],
+      testIgnore: /.*\.setup\.ts/,
     },
   ],
 

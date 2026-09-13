@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test'
 
+const routes = ['/en/dashboard', '/en/clients', '/en/projects', '/en/tasks'] as const
+
 test.describe('mobile layout', () => {
   test.use({
     viewport: {
@@ -8,17 +10,19 @@ test.describe('mobile layout', () => {
     },
   })
 
-  test('components page does not overflow the viewport', async ({ page }) => {
-    await page.goto('/en/components')
+  for (const route of routes) {
+    test(`${route} does not overflow the viewport`, async ({ page }) => {
+      await page.goto(route)
 
-    const hasPageOverflow = await page.evaluate(() => {
-      return document.documentElement.scrollWidth > document.documentElement.clientWidth
+      const hasPageOverflow = await page.evaluate(() => {
+        return document.documentElement.scrollWidth > document.documentElement.clientWidth
+      })
+
+      expect(hasPageOverflow).toBe(false)
     })
+  }
 
-    expect(hasPageOverflow).toBe(false)
-  })
-
-  test('mobile navigation opens and closes', async ({ page }) => {
+  test('mobile navigation opens navigates and closes', async ({ page }) => {
     await page.goto('/en/dashboard')
 
     await page
@@ -31,17 +35,13 @@ test.describe('mobile layout', () => {
 
     await expect(navigation).toBeVisible()
 
-    await expect(
-      navigation.getByRole('link', {
-        name: 'Dashboard',
-      }),
-    ).toBeVisible()
-
     await navigation
       .getByRole('link', {
-        name: 'Dashboard',
+        name: 'Clients',
       })
       .click()
+
+    await expect(page).toHaveURL(/\/en\/clients$/)
 
     await expect(navigation).not.toBeVisible()
   })
