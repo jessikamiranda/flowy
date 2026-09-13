@@ -22,7 +22,8 @@
   "navigation": {
     "main": "Main",
     "dashboard": "Dashboard",
-    "clients": "Clients"
+    "clients": "Clients",
+    "projects": "Projects"
   },
   "dataTable": {
     "noResults": "No results.",
@@ -146,5 +147,100 @@
       "deleteSuccess": "Client deleted successfully.",
       "deleteError": "We couldn't delete the client. Please try again."
     }
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Plan and track client projects from start to finish.",
+    "projectCount": "{count, plural, =0 {No projects yet} =1 {# project} other {# projects}}",
+    "table": {
+      "searchPlaceholder": "Search projects...",
+      "columns": {
+        "project": "Project",
+        "client": "Client",
+        "status": "Status",
+        "priority": "Priority",
+        "startDate": "Start date",
+        "dueDate": "Due date",
+        "actions": "Actions"
+      },
+      "filters": {
+        "statusLabel": "Filter projects by status",
+        "statusPlaceholder": "Status",
+        "priorityLabel": "Filter projects by priority",
+        "priorityPlaceholder": "Priority"
+      },
+      "status": {
+        "planning": "Planning",
+        "inProgress": "In progress",
+        "onHold": "On hold",
+        "completed": "Completed"
+      },
+      "priority": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      }
+    },
+    "actions": {
+      "newProject": "New project",
+      "createProject": "Create project",
+      "creating": "Creating...",
+      "edit": "Edit",
+      "delete": "Delete",
+      "openMenu": "Open actions for {name}",
+      "saveChanges": "Save changes",
+      "saving": "Saving..."
+    },
+    "form": {
+      "title": "Create a new project",
+      "description": "Add the project details and link it to a client.",
+      "client": "Client",
+      "clientPlaceholder": "Select a client",
+      "name": "Project name",
+      "namePlaceholder": "e.g. Website redesign",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Add a short description of the project...",
+      "status": "Status",
+      "priority": "Priority",
+      "startDate": "Start date",
+      "dueDate": "Due date"
+    },
+    "status": {
+      "planning": "Planning",
+      "inProgress": "In progress",
+      "onHold": "On hold",
+      "completed": "Completed"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "messages": {
+      "createSuccess": "Project created successfully.",
+      "createError": "We couldn't create the project. Please try again.",
+      "updateSuccess": "Project updated successfully.",
+      "updateError": "We couldn't update the project. Please try again.",
+      "deleteSuccess": "Project deleted successfully.",
+      "deleteError": "We couldn't delete the project. Please try again."
+    },
+    "editForm": {
+      "title": "Edit project",
+      "description": "Update the details for {project}."
+    },
+    "deleteDialog": {
+      "title": "Delete project?",
+      "description": "This will permanently delete {project}. Any tasks linked to this project will also be deleted. This action cannot be undone.",
+      "confirm": "Delete project",
+      "deleting": "Deleting..."
+    }
+  },
+  "datePicker": {
+    "placeholder": "Select a date",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "inOneWeek": "In 1 week",
+    "endOfMonth": "End of month",
+    "clear": "Clear date"
   }
 }

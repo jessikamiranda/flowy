@@ -1,8 +1,8 @@
-import { Building2, LayoutDashboard, type LucideIcon } from 'lucide-react'
+import { Building2, FolderKanban, LayoutDashboard, type LucideIcon } from 'lucide-react'
 
 export type AppNavigationItem = {
   href: string
-  labelKey: 'dashboard' | 'clients'
+  labelKey: 'dashboard' | 'clients' | 'projects'
   icon: LucideIcon
 }
 
@@ -24,6 +24,11 @@ export const appNavigationGroups: AppNavigationGroup[] = [
         href: '/clients',
         labelKey: 'clients',
         icon: Building2,
+      },
+      {
+        href: '/projects',
+        labelKey: 'projects',
+        icon: FolderKanban,
       },
     ],
   },

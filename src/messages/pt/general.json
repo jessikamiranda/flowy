@@ -22,7 +22,8 @@
   "navigation": {
     "main": "Principal",
     "dashboard": "Dashboard",
-    "clients": "Clientes"
+    "clients": "Clientes",
+    "projects": "Projetos"
   },
   "dataTable": {
     "noResults": "Nenhum resultado.",
@@ -146,5 +147,100 @@
       "deleteSuccess": "Cliente excluído com sucesso.",
       "deleteError": "Não foi possível excluir o cliente. Tente novamente."
     }
+  },
+  "projects": {
+    "title": "Projetos",
+    "description": "Planeje e acompanhe os projetos dos clientes do início ao fim.",
+    "projectCount": "{count, plural, =0 {Nenhum projeto ainda} =1 {# projeto} other {# projetos}}",
+    "table": {
+      "searchPlaceholder": "Buscar projetos...",
+      "columns": {
+        "project": "Projeto",
+        "client": "Cliente",
+        "status": "Status",
+        "priority": "Prioridade",
+        "startDate": "Data de início",
+        "dueDate": "Data de entrega",
+        "actions": "Ações"
+      },
+      "filters": {
+        "statusLabel": "Filtrar projetos por status",
+        "statusPlaceholder": "Status",
+        "priorityLabel": "Filtrar projetos por prioridade",
+        "priorityPlaceholder": "Prioridade"
+      },
+      "status": {
+        "planning": "Planejamento",
+        "inProgress": "Em andamento",
+        "onHold": "Em espera",
+        "completed": "Concluído"
+      },
+      "priority": {
+        "low": "Baixa",
+        "medium": "Média",
+        "high": "Alta"
+      }
+    },
+    "actions": {
+      "newProject": "Novo projeto",
+      "createProject": "Criar projeto",
+      "creating": "Criando...",
+      "edit": "Editar",
+      "delete": "Excluir",
+      "openMenu": "Abrir ações de {name}",
+      "saveChanges": "Salvar alterações",
+      "saving": "Salvando..."
+    },
+    "form": {
+      "title": "Criar novo projeto",
+      "description": "Adicione os dados do projeto e vincule-o a um cliente.",
+      "client": "Cliente",
+      "clientPlaceholder": "Selecione um cliente",
+      "name": "Nome do projeto",
+      "namePlaceholder": "Ex.: Redesign do site",
+      "descriptionLabel": "Descrição",
+      "descriptionPlaceholder": "Adicione uma breve descrição do projeto...",
+      "status": "Status",
+      "priority": "Prioridade",
+      "startDate": "Data de início",
+      "dueDate": "Data de entrega"
+    },
+    "status": {
+      "planning": "Planejamento",
+      "inProgress": "Em andamento",
+      "onHold": "Em espera",
+      "completed": "Concluído"
+    },
+    "priority": {
+      "low": "Baixa",
+      "medium": "Média",
+      "high": "Alta"
+    },
+    "messages": {
+      "createSuccess": "Projeto criado com sucesso.",
+      "createError": "Não foi possível criar o projeto. Tente novamente.",
+      "updateSuccess": "Projeto atualizado com sucesso.",
+      "updateError": "Não foi possível atualizar o projeto. Tente novamente.",
+      "deleteSuccess": "Projeto excluído com sucesso.",
+      "deleteError": "Não foi possível excluir o projeto. Tente novamente."
+    },
+    "editForm": {
+      "title": "Editar projeto",
+      "description": "Atualize os dados de {project}."
+    },
+    "deleteDialog": {
+      "title": "Excluir projeto?",
+      "description": "Isso excluirá permanentemente {project}. As tarefas vinculadas a este projeto também serão excluídas. Esta ação não pode ser desfeita.",
+      "confirm": "Excluir projeto",
+      "deleting": "Excluindo..."
+    }
+  },
+  "datePicker": {
+    "placeholder": "Selecione uma data",
+    "today": "Hoje",
+    "tomorrow": "Amanhã",
+    "inOneWeek": "Em 1 semana",
+    "endOfMonth": "Fim do mês",
+    "clear": "Limpar data"
   }
 }
