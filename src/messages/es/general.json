@@ -1,0 +1,192 @@
+{
+  "auth": {
+    "back": "Volver",
+    "welcomeBack": "¡Bienvenido de nuevo!",
+    "loginDescription": "Ingresa tus credenciales para acceder a tu cuenta.",
+    "form": {
+      "email": "Correo electrónico",
+      "emailPlaceholder": "email@ejemplo.com",
+      "password": "Contraseña",
+      "loginButton": "Iniciar sesión",
+      "showPassword": "Mostrar contraseña",
+      "hidePassword": "Ocultar contraseña"
+    }
+  },
+  "fieldMessages": {
+    "required": "Este campo es obligatorio.",
+    "invalidEmail": "Ingresa una dirección de correo electrónico válida."
+  },
+  "navigation": {
+    "main": "Principal",
+    "dashboard": "Dashboard"
+  },
+  "dataTable": {
+    "noResults": "Sin resultados.",
+    "selectAllRows": "Seleccionar todas las filas de esta página",
+    "selectRow": "Seleccionar fila",
+    "previousPage": "Página anterior",
+    "nextPage": "Página siguiente",
+    "searchPlaceholder": "Buscar...",
+    "all": "Todos",
+    "clearFilters": "Limpiar filtros",
+    "columns": "Columnas",
+    "toggleColumns": "Mostrar columnas",
+    "selectedForActions": "{count, plural, one {# fila seleccionada} other {# filas seleccionadas}}",
+    "clearSelection": "Limpiar selección",
+    "resizeColumn": "Redimensionar columna {column}",
+    "recordsSummary": "Mostrando {start}–{end} de {count, plural, one {# registro} other {# registros}}",
+    "filteredRecordsSummary": "Mostrando {start}–{end} de {filtered, plural, one {# registro filtrado} other {# registros filtrados}} · {total, plural, one {# registro en total} other {# registros en total}}"
+  },
+  "showcase": {
+    "dataTable": {
+      "title": "Tabla",
+      "description": "Una tabla reutilizable con ordenación, selección, redimensionamiento, paginación y edición directa.",
+      "columns": {
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "status": "Estado",
+        "budget": "Presupuesto",
+        "createdAt": "Creado el"
+      },
+      "status": {
+        "active": "Activo",
+        "pending": "Pendiente",
+        "inactive": "Inactivo"
+      },
+      "editName": "Editar nombre de {name}",
+      "editStatus": "Editar estado de {name}",
+      "editBudget": "Editar presupuesto de {name}",
+      "searchPlaceholder": "Buscar por nombre o correo...",
+      "filters": {
+        "emailLabel": "Filtrar por correo",
+        "emailPlaceholder": "Correo...",
+        "statusLabel": "Filtrar por estado",
+        "statusPlaceholder": "Estado"
+      },
+      "bulkActions": {
+        "setActive": "Marcar como activo",
+        "setInactive": "Marcar como inactivo"
+      }
+    },
+    "layout": {
+      "title": "Diseño de página",
+      "description": "Estructura reutilizable con breadcrumbs, títulos, descripciones y acciones.",
+      "breadcrumbs": {
+        "parent": "Componentes",
+        "current": "Ejemplo"
+      },
+      "example": {
+        "title": "Página de ejemplo",
+        "description": "Un encabezado consistente para las pantallas de la aplicación.",
+        "action": "Acción principal"
+      }
+    },
+    "states": {
+      "title": "Estados",
+      "description": "Estados reutilizables para vacío, error y carga.",
+      "empty": {
+        "title": "Aún no hay proyectos",
+        "description": "Crea tu primer proyecto para comenzar.",
+        "action": "Crear proyecto"
+      },
+      "error": {
+        "title": "Algo salió mal",
+        "description": "No se pudo cargar este contenido.",
+        "action": "Intentar de nuevo"
+      },
+      "loading": "Cargando contenido..."
+    },
+    "forms": {
+      "title": "Formularios",
+      "description": "Campos compatibles con React Hook Form con etiquetas, descripciones y errores consistentes.",
+      "fields": {
+        "name": "Nombre",
+        "namePlaceholder": "Introduce un nombre",
+        "role": "Rol",
+        "rolePlaceholder": "Selecciona un rol",
+        "bio": "Biografía",
+        "bioPlaceholder": "Cuéntanos un poco sobre ti",
+        "notifications": "Notificaciones",
+        "notificationsDescription": "Recibir notificaciones del producto.",
+        "terms": "Acepto los términos"
+      },
+      "roles": {
+        "admin": "Administrador",
+        "member": "Miembro",
+        "viewer": "Visualizador"
+      },
+      "submit": "Guardar",
+      "reset": "Restablecer"
+    },
+    "filters": {
+      "title": "Búsqueda y filtros",
+      "description": "Filtros reutilizables que pueden sincronizarse con la URL sin depender de DataTable.",
+      "searchLabel": "Buscar ejemplos",
+      "searchPlaceholder": "Buscar...",
+      "statusLabel": "Filtrar ejemplos por estado",
+      "statusPlaceholder": "Estado",
+      "status": {
+        "active": "Activo",
+        "inactive": "Inactivo"
+      },
+      "action": "Nuevo elemento"
+    },
+    "dialog": {
+      "title": "Diálogo de confirmación",
+      "description": "Flujos reutilizables de confirmación para acciones importantes y destructivas.",
+      "default": {
+        "trigger": "Publicar",
+        "title": "¿Publicar cambios?",
+        "description": "Estos cambios serán visibles para todos.",
+        "confirm": "Publicar"
+      },
+      "destructive": {
+        "trigger": "Eliminar",
+        "title": "¿Eliminar elemento?",
+        "description": "Esta acción no se puede deshacer.",
+        "confirm": "Eliminar",
+        "processing": "Eliminando..."
+      }
+    },
+    "page": {
+      "title": "Componentes",
+      "description": "Bloques reutilizables incluidos en el starter."
+    }
+  },
+  "themeSwitcher": {
+    "label": "Tema",
+    "appearance": "Apariencia",
+    "color": "Color",
+    "modes": {
+      "system": "Sistema",
+      "light": "Claro",
+      "dark": "Oscuro"
+    },
+    "colors": {
+      "neutral": "Neutro",
+      "blue": "Azul",
+      "violet": "Violeta",
+      "rose": "Rosa",
+      "emerald": "Esmeralda"
+    }
+  },
+  "appShell": {
+    "toggleSidebar": "Alternar navegación",
+    "navigationTitle": "Navegación",
+    "navigationDescription": "Navegación principal de la aplicación."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Resumen de tu espacio de trabajo."
+  },
+  "confirmDialog": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "processing": "Procesando..."
+  },
+  "filters": {
+    "all": "Todos",
+    "clear": "Limpiar filtros",
+    "clearSearch": "Limpiar búsqueda"
+  }
+}

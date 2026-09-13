@@ -1,0 +1,13 @@
+.next
+node_modules
+coverage
+out
+build
+
+playwright-report
+test-results
+blob-report
+
+next-env.d.ts
+*.tsbuildinfo
+package-lock.json

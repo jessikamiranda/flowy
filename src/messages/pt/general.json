@@ -1,0 +1,192 @@
+{
+  "auth": {
+    "back": "Voltar",
+    "welcomeBack": "Bem-vindo de volta!",
+    "loginDescription": "Insira suas credenciais para acessar sua conta.",
+    "form": {
+      "email": "E-mail",
+      "emailPlaceholder": "email@exemplo.com",
+      "password": "Senha",
+      "loginButton": "Entrar",
+      "showPassword": "Mostrar senha",
+      "hidePassword": "Ocultar senha"
+    }
+  },
+  "fieldMessages": {
+    "required": "Este campo é obrigatório.",
+    "invalidEmail": "Insira um endereço de e-mail válido."
+  },
+  "navigation": {
+    "main": "Principal",
+    "dashboard": "Dashboard"
+  },
+  "dataTable": {
+    "noResults": "Nenhum resultado.",
+    "selectAllRows": "Selecionar todas as linhas desta página",
+    "selectRow": "Selecionar linha",
+    "previousPage": "Página anterior",
+    "nextPage": "Próxima página",
+    "searchPlaceholder": "Buscar...",
+    "all": "Todos",
+    "clearFilters": "Limpar filtros",
+    "columns": "Colunas",
+    "toggleColumns": "Exibir colunas",
+    "selectedForActions": "{count, plural, one {# linha selecionada} other {# linhas selecionadas}}",
+    "clearSelection": "Limpar seleção",
+    "resizeColumn": "Redimensionar coluna {column}",
+    "recordsSummary": "Exibindo {start}–{end} de {count, plural, one {# registro} other {# registros}}",
+    "filteredRecordsSummary": "Exibindo {start}–{end} de {filtered, plural, one {# registro filtrado} other {# registros filtrados}} · {total, plural, one {# registro no total} other {# registros no total}}"
+  },
+  "showcase": {
+    "dataTable": {
+      "title": "Tabela",
+      "description": "Uma tabela reutilizável com ordenação, seleção, redimensionamento, paginação e edição direta.",
+      "columns": {
+        "name": "Nome",
+        "email": "E-mail",
+        "status": "Status",
+        "budget": "Orçamento",
+        "createdAt": "Criado em"
+      },
+      "status": {
+        "active": "Ativo",
+        "pending": "Pendente",
+        "inactive": "Inativo"
+      },
+      "editName": "Editar nome de {name}",
+      "editStatus": "Editar status de {name}",
+      "editBudget": "Editar orçamento de {name}",
+      "searchPlaceholder": "Buscar por nome ou e-mail...",
+      "filters": {
+        "emailLabel": "Filtrar por e-mail",
+        "emailPlaceholder": "E-mail...",
+        "statusLabel": "Filtrar por status",
+        "statusPlaceholder": "Status"
+      },
+      "bulkActions": {
+        "setActive": "Definir como ativo",
+        "setInactive": "Definir como inativo"
+      }
+    },
+    "layout": {
+      "title": "Layout de página",
+      "description": "Estrutura reutilizável de página com breadcrumbs, títulos, descrições e ações.",
+      "breadcrumbs": {
+        "parent": "Componentes",
+        "current": "Exemplo"
+      },
+      "example": {
+        "title": "Página de exemplo",
+        "description": "Um cabeçalho consistente para telas da aplicação.",
+        "action": "Ação principal"
+      }
+    },
+    "states": {
+      "title": "Estados",
+      "description": "Estados reutilizáveis para vazio, erro e carregamento.",
+      "empty": {
+        "title": "Nenhum projeto ainda",
+        "description": "Crie seu primeiro projeto para começar.",
+        "action": "Criar projeto"
+      },
+      "error": {
+        "title": "Algo deu errado",
+        "description": "Não foi possível carregar este conteúdo.",
+        "action": "Tentar novamente"
+      },
+      "loading": "Carregando conteúdo..."
+    },
+    "forms": {
+      "title": "Formulários",
+      "description": "Campos compatíveis com React Hook Form com labels, descrições e erros consistentes.",
+      "fields": {
+        "name": "Nome",
+        "namePlaceholder": "Digite um nome",
+        "role": "Função",
+        "rolePlaceholder": "Selecione uma função",
+        "bio": "Biografia",
+        "bioPlaceholder": "Conte um pouco sobre você",
+        "notifications": "Notificações",
+        "notificationsDescription": "Receber notificações do produto.",
+        "terms": "Aceito os termos"
+      },
+      "roles": {
+        "admin": "Administrador",
+        "member": "Membro",
+        "viewer": "Visualizador"
+      },
+      "submit": "Salvar",
+      "reset": "Redefinir"
+    },
+    "filters": {
+      "title": "Busca e filtros",
+      "description": "Filtros reutilizáveis que podem sincronizar com a URL sem depender da DataTable.",
+      "searchLabel": "Buscar exemplos",
+      "searchPlaceholder": "Buscar...",
+      "statusLabel": "Filtrar exemplos por status",
+      "statusPlaceholder": "Status",
+      "status": {
+        "active": "Ativo",
+        "inactive": "Inativo"
+      },
+      "action": "Novo item"
+    },
+    "dialog": {
+      "title": "Diálogo de confirmação",
+      "description": "Fluxos reutilizáveis de confirmação para ações importantes e destrutivas.",
+      "default": {
+        "trigger": "Publicar",
+        "title": "Publicar alterações?",
+        "description": "Estas alterações ficarão visíveis para todos.",
+        "confirm": "Publicar"
+      },
+      "destructive": {
+        "trigger": "Excluir",
+        "title": "Excluir item?",
+        "description": "Esta ação não pode ser desfeita.",
+        "confirm": "Excluir",
+        "processing": "Excluindo..."
+      }
+    },
+    "page": {
+      "title": "Componentes",
+      "description": "Blocos reutilizáveis incluídos no starter."
+    }
+  },
+  "themeSwitcher": {
+    "label": "Tema",
+    "appearance": "Aparência",
+    "color": "Cor",
+    "modes": {
+      "system": "Sistema",
+      "light": "Claro",
+      "dark": "Escuro"
+    },
+    "colors": {
+      "neutral": "Neutro",
+      "blue": "Azul",
+      "violet": "Violeta",
+      "rose": "Rosa",
+      "emerald": "Esmeralda"
+    }
+  },
+  "appShell": {
+    "toggleSidebar": "Alternar navegação",
+    "navigationTitle": "Navegação",
+    "navigationDescription": "Navegação principal da aplicação."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Visão geral do seu workspace."
+  },
+  "confirmDialog": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "processing": "Processando..."
+  },
+  "filters": {
+    "all": "Todos",
+    "clear": "Limpar filtros",
+    "clearSearch": "Limpar busca"
+  }
+}
