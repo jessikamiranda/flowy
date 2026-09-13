@@ -6,7 +6,6 @@
     "node": ">=24.15.0"
   },
   "scripts": {
-    "init": "node scripts/init-project.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
