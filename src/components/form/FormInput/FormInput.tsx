@@ -102,11 +102,9 @@ export function FormInput<T extends FieldValues>({
             )}
           </div>
 
-          <div className="min-h-5">
-            {fieldState.error && (
-              <FieldError id={`${inputId}-error`} errors={[fieldState.error]} />
-            )}
-          </div>
+          {fieldState.error && (
+            <FieldError id={`${inputId}-error`} errors={[fieldState.error]} />
+          )}
         </Field>
       )}
     />

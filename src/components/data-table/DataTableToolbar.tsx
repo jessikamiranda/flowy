@@ -41,8 +41,8 @@ export function DataTableToolbar<TData extends RowData>({
   }
 
   return (
-    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-      <div className="flex flex-1 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+    <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between">
+      <div className="flex w-full flex-1 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
         {enableGlobalSearch && (
           <div className="relative w-full sm:w-72">
             <Search

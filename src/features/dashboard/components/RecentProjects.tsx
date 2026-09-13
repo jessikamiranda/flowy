@@ -50,7 +50,7 @@ export function RecentProjects({
 
         <Link
           href="/projects"
-          className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+          className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-sm font-medium text-primary hover:underline"
         >
           {viewAllLabel}
           <ArrowUpRight className="size-4" aria-hidden="true" />
