@@ -67,7 +67,47 @@
   },
   "dashboard": {
     "title": "Dashboard",
-    "description": "Resumen de tu espacio de trabajo."
+    "description": "Resumen de tu espacio de trabajo.",
+    "metrics": {
+      "totalClients": {
+        "title": "Total de clientes",
+        "description": "Clientes en tu espacio de trabajo"
+      },
+      "activeProjects": {
+        "title": "Proyectos activos",
+        "description": "Proyectos que aún están en curso"
+      },
+      "openTasks": {
+        "title": "Tareas abiertas",
+        "description": "Tareas pendientes de completar"
+      },
+      "tasksDueSoon": {
+        "title": "Próximos vencimientos",
+        "description": "Tareas abiertas que vencen en los próximos 7 días"
+      }
+    },
+    "viewAll": "Ver todo",
+    "recentProjects": {
+      "title": "Proyectos recientes",
+      "description": "Tus proyectos de clientes más recientes.",
+      "empty": "Aún no hay proyectos."
+    },
+    "upcomingTasks": {
+      "title": "Próximas tareas",
+      "description": "Tareas abiertas con los vencimientos más próximos.",
+      "empty": "No hay tareas próximas."
+    },
+    "status": {
+      "planning": "Planificación",
+      "inProgress": "En progreso",
+      "onHold": "En espera",
+      "completed": "Completado"
+    },
+    "priority": {
+      "low": "Baja",
+      "medium": "Media",
+      "high": "Alta"
+    }
   },
   "confirmDialog": {
     "cancel": "Cancelar",

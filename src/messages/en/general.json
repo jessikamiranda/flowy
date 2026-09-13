@@ -67,7 +67,47 @@
   },
   "dashboard": {
     "title": "Dashboard",
-    "description": "Overview of your workspace."
+    "description": "Overview of your workspace.",
+    "metrics": {
+      "totalClients": {
+        "title": "Total clients",
+        "description": "Clients in your workspace"
+      },
+      "activeProjects": {
+        "title": "Active projects",
+        "description": "Projects currently in progress"
+      },
+      "openTasks": {
+        "title": "Open tasks",
+        "description": "Tasks waiting to be completed"
+      },
+      "tasksDueSoon": {
+        "title": "Due soon",
+        "description": "Open tasks due in the next 7 days"
+      }
+    },
+    "viewAll": "View all",
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Your latest client projects.",
+      "empty": "No projects yet."
+    },
+    "upcomingTasks": {
+      "title": "Upcoming tasks",
+      "description": "Open tasks with the nearest deadlines.",
+      "empty": "No upcoming tasks."
+    },
+    "status": {
+      "planning": "Planning",
+      "inProgress": "In progress",
+      "onHold": "On hold",
+      "completed": "Completed"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    }
   },
   "confirmDialog": {
     "cancel": "Cancel",
