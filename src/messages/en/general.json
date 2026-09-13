@@ -23,7 +23,8 @@
     "main": "Main",
     "dashboard": "Dashboard",
     "clients": "Clients",
-    "projects": "Projects"
+    "projects": "Projects",
+    "tasks": "Tasks"
   },
   "dataTable": {
     "noResults": "No results.",
@@ -242,5 +243,88 @@
     "inOneWeek": "In 1 week",
     "endOfMonth": "End of month",
     "clear": "Clear date"
+  },
+  "tasks": {
+    "title": "Tasks",
+    "description": "Organize and track the work across your projects.",
+    "taskCount": "{count, plural, =0 {No tasks yet} =1 {# task} other {# tasks}}",
+    "table": {
+      "searchPlaceholder": "Search tasks...",
+      "columns": {
+        "task": "Task",
+        "project": "Project",
+        "status": "Status",
+        "priority": "Priority",
+        "dueDate": "Due date",
+        "actions": "Actions"
+      },
+      "filters": {
+        "statusLabel": "Filter tasks by status",
+        "statusPlaceholder": "Status",
+        "priorityLabel": "Filter tasks by priority",
+        "priorityPlaceholder": "Priority"
+      },
+      "status": {
+        "todo": "To do",
+        "inProgress": "In progress",
+        "done": "Done"
+      },
+      "priority": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      }
+    },
+    "actions": {
+      "newTask": "New task",
+      "createTask": "Create task",
+      "creating": "Creating...",
+      "edit": "Edit",
+      "delete": "Delete",
+      "openMenu": "Open actions for {name}",
+      "saveChanges": "Save changes",
+      "saving": "Saving..."
+    },
+    "form": {
+      "title": "Create a new task",
+      "description": "Add a task and link it to one of your projects.",
+      "project": "Project",
+      "projectPlaceholder": "Select a project",
+      "taskTitle": "Task title",
+      "taskTitlePlaceholder": "e.g. Design homepage",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Add a short description of the task...",
+      "status": "Status",
+      "priority": "Priority",
+      "dueDate": "Due date"
+    },
+    "status": {
+      "todo": "To do",
+      "inProgress": "In progress",
+      "done": "Done"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "messages": {
+      "createSuccess": "Task created successfully.",
+      "createError": "We couldn't create the task. Please try again.",
+      "updateSuccess": "Task updated successfully.",
+      "updateError": "We couldn't update the task. Please try again.",
+      "deleteSuccess": "Task deleted successfully.",
+      "deleteError": "We couldn't delete the task. Please try again."
+    },
+    "editForm": {
+      "title": "Edit task",
+      "description": "Update the details for {task}."
+    },
+    "deleteDialog": {
+      "title": "Delete task?",
+      "description": "This will permanently delete {task}. This action cannot be undone.",
+      "confirm": "Delete task",
+      "deleting": "Deleting..."
+    }
   }
 }

@@ -23,7 +23,8 @@
     "main": "Principal",
     "dashboard": "Dashboard",
     "clients": "Clientes",
-    "projects": "Projetos"
+    "projects": "Projetos",
+    "tasks": "Tareas"
   },
   "dataTable": {
     "noResults": "Nenhum resultado.",
@@ -242,5 +243,88 @@
     "inOneWeek": "Em 1 semana",
     "endOfMonth": "Fim do mês",
     "clear": "Limpar data"
+  },
+  "tasks": {
+    "title": "Tarefas",
+    "description": "Organize e acompanhe o trabalho dos seus projetos.",
+    "taskCount": "{count, plural, =0 {Nenhuma tarefa ainda} =1 {# tarefa} other {# tarefas}}",
+    "table": {
+      "searchPlaceholder": "Buscar tarefas...",
+      "columns": {
+        "task": "Tarefa",
+        "project": "Projeto",
+        "status": "Status",
+        "priority": "Prioridade",
+        "dueDate": "Data de entrega",
+        "actions": "Ações"
+      },
+      "filters": {
+        "statusLabel": "Filtrar tarefas por status",
+        "statusPlaceholder": "Status",
+        "priorityLabel": "Filtrar tarefas por prioridade",
+        "priorityPlaceholder": "Prioridade"
+      },
+      "status": {
+        "todo": "A fazer",
+        "inProgress": "Em andamento",
+        "done": "Concluída"
+      },
+      "priority": {
+        "low": "Baixa",
+        "medium": "Média",
+        "high": "Alta"
+      }
+    },
+    "actions": {
+      "newTask": "Nova tarefa",
+      "createTask": "Criar tarefa",
+      "creating": "Criando...",
+      "edit": "Editar",
+      "delete": "Excluir",
+      "openMenu": "Abrir ações de {name}",
+      "saveChanges": "Salvar alterações",
+      "saving": "Salvando..."
+    },
+    "form": {
+      "title": "Criar nova tarefa",
+      "description": "Adicione uma tarefa e vincule-a a um dos seus projetos.",
+      "project": "Projeto",
+      "projectPlaceholder": "Selecione um projeto",
+      "taskTitle": "Título da tarefa",
+      "taskTitlePlaceholder": "Ex.: Criar layout da homepage",
+      "descriptionLabel": "Descrição",
+      "descriptionPlaceholder": "Adicione uma breve descrição da tarefa...",
+      "status": "Status",
+      "priority": "Prioridade",
+      "dueDate": "Data de entrega"
+    },
+    "status": {
+      "todo": "A fazer",
+      "inProgress": "Em andamento",
+      "done": "Concluída"
+    },
+    "priority": {
+      "low": "Baixa",
+      "medium": "Média",
+      "high": "Alta"
+    },
+    "messages": {
+      "createSuccess": "Tarefa criada com sucesso.",
+      "createError": "Não foi possível criar a tarefa. Tente novamente.",
+      "updateSuccess": "Tarefa atualizada com sucesso.",
+      "updateError": "Não foi possível atualizar a tarefa. Tente novamente.",
+      "deleteSuccess": "Tarefa excluída com sucesso.",
+      "deleteError": "Não foi possível excluir a tarefa. Tente novamente."
+    },
+    "editForm": {
+      "title": "Editar tarefa",
+      "description": "Atualize os dados de {task}."
+    },
+    "deleteDialog": {
+      "title": "Excluir tarefa?",
+      "description": "Isso excluirá permanentemente {task}. Esta ação não pode ser desfeita.",
+      "confirm": "Excluir tarefa",
+      "deleting": "Excluindo..."
+    }
   }
 }

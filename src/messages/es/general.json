@@ -23,7 +23,8 @@
     "main": "Principal",
     "dashboard": "Dashboard",
     "clients": "Clientes",
-    "projects": "Proyectos"
+    "projects": "Proyectos",
+    "tasks": "Tareas"
   },
   "dataTable": {
     "noResults": "Sin resultados.",
@@ -242,5 +243,88 @@
     "inOneWeek": "En 1 semana",
     "endOfMonth": "Fin de mes",
     "clear": "Limpiar fecha"
+  },
+  "tasks": {
+    "title": "Tareas",
+    "description": "Organiza y sigue el trabajo de tus proyectos.",
+    "taskCount": "{count, plural, =0 {Aún no hay tareas} =1 {# tarea} other {# tareas}}",
+    "table": {
+      "searchPlaceholder": "Buscar tareas...",
+      "columns": {
+        "task": "Tarea",
+        "project": "Proyecto",
+        "status": "Estado",
+        "priority": "Prioridad",
+        "dueDate": "Fecha de entrega",
+        "actions": "Acciones"
+      },
+      "filters": {
+        "statusLabel": "Filtrar tareas por estado",
+        "statusPlaceholder": "Estado",
+        "priorityLabel": "Filtrar tareas por prioridad",
+        "priorityPlaceholder": "Prioridad"
+      },
+      "status": {
+        "todo": "Por hacer",
+        "inProgress": "En progreso",
+        "done": "Completada"
+      },
+      "priority": {
+        "low": "Baja",
+        "medium": "Media",
+        "high": "Alta"
+      }
+    },
+    "actions": {
+      "newTask": "Nueva tarea",
+      "createTask": "Crear tarea",
+      "creating": "Creando...",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "openMenu": "Abrir acciones de {name}",
+      "saveChanges": "Guardar cambios",
+      "saving": "Guardando..."
+    },
+    "form": {
+      "title": "Crear nueva tarea",
+      "description": "Agrega una tarea y vincúlala a uno de tus proyectos.",
+      "project": "Proyecto",
+      "projectPlaceholder": "Selecciona un proyecto",
+      "taskTitle": "Título de la tarea",
+      "taskTitlePlaceholder": "Ej.: Diseñar la página de inicio",
+      "descriptionLabel": "Descripción",
+      "descriptionPlaceholder": "Agrega una breve descripción de la tarea...",
+      "status": "Estado",
+      "priority": "Prioridad",
+      "dueDate": "Fecha de entrega"
+    },
+    "status": {
+      "todo": "Por hacer",
+      "inProgress": "En progreso",
+      "done": "Completada"
+    },
+    "priority": {
+      "low": "Baja",
+      "medium": "Media",
+      "high": "Alta"
+    },
+    "messages": {
+      "createSuccess": "Tarea creada correctamente.",
+      "createError": "No pudimos crear la tarea. Inténtalo de nuevo.",
+      "updateSuccess": "Tarea actualizada correctamente.",
+      "updateError": "No pudimos actualizar la tarea. Inténtalo de nuevo.",
+      "deleteSuccess": "Tarea eliminada correctamente.",
+      "deleteError": "No pudimos eliminar la tarea. Inténtalo de nuevo."
+    },
+    "editForm": {
+      "title": "Editar tarea",
+      "description": "Actualiza los datos de {task}."
+    },
+    "deleteDialog": {
+      "title": "¿Eliminar tarea?",
+      "description": "Esto eliminará permanentemente {task}. Esta acción no se puede deshacer.",
+      "confirm": "Eliminar tarea",
+      "deleting": "Eliminando..."
+    }
   }
 }
