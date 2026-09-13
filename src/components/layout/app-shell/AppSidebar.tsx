@@ -49,6 +49,7 @@ export function AppSidebar() {
             <SidebarMenuButton
               size="lg"
               render={<Link href={`/${locale}/dashboard`} onClick={handleNavigate} />}
+              tooltip={appConfig.name.charAt(0).toUpperCase()}
             >
               <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary font-semibold text-primary-foreground">
                 {appConfig.name.charAt(0).toUpperCase()}
@@ -81,6 +82,7 @@ export function AppSidebar() {
                       <SidebarMenuButton
                         isActive={isActive}
                         render={<Link href={href} onClick={handleNavigate} />}
+                        tooltip={t(item.labelKey)}
                       >
                         <Icon aria-hidden="true" />
 

@@ -83,7 +83,7 @@ export function EditableSelectCell<TValue extends string>({
         aria-label={ariaLabel}
         className={cn(
           'h-8 w-full border-transparent bg-transparent shadow-none',
-          'hover:border-input hover:bg-muted',
+          'hover:border-input hover:bg-muted cursor-pointer',
           className,
         )}
       >

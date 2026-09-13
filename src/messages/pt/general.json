@@ -141,6 +141,13 @@
       "status": {
         "active": "Ativo",
         "inactive": "Inativo"
+      },
+      "empty": {
+        "title": "Nenhum cliente ainda",
+        "description": "Adicione seu primeiro cliente para começar a organizar projetos e tarefas."
+      },
+      "inline": {
+        "statusAriaLabel": "Alterar status de {client}"
       }
     },
     "actions": {
@@ -220,6 +227,17 @@
         "low": "Baixa",
         "medium": "Média",
         "high": "Alta"
+      },
+      "empty": {
+        "title": "Nenhum projeto ainda",
+        "description": "Crie seu primeiro projeto e vincule-o a um cliente.",
+        "noClientsTitle": "Adicione um cliente primeiro",
+        "noClientsDescription": "Projetos pertencem a clientes, então crie um cliente antes de iniciar um projeto.",
+        "goToClients": "Ir para clientes"
+      },
+      "inline": {
+        "statusAriaLabel": "Alterar status de {project}",
+        "priorityAriaLabel": "Alterar prioridade de {project}"
       }
     },
     "actions": {
@@ -313,6 +331,17 @@
         "low": "Baixa",
         "medium": "Média",
         "high": "Alta"
+      },
+      "empty": {
+        "title": "Nenhuma tarefa ainda",
+        "description": "Crie sua primeira tarefa e comece a acompanhar o trabalho que precisa ser feito.",
+        "noProjectsTitle": "Crie um projeto primeiro",
+        "noProjectsDescription": "Tarefas pertencem a projetos, então crie um projeto antes de adicionar tarefas.",
+        "goToProjects": "Ir para projetos"
+      },
+      "inline": {
+        "statusAriaLabel": "Alterar status de {task}",
+        "priorityAriaLabel": "Alterar prioridade de {task}"
       }
     },
     "actions": {
@@ -365,6 +394,20 @@
       "description": "Isso excluirá permanentemente {task}. Esta ação não pode ser desfeita.",
       "confirm": "Excluir tarefa",
       "deleting": "Excluindo..."
+    },
+    "deadline": {
+      "overdue": "Atrasada",
+      "today": "Vence hoje",
+      "tomorrow": "Amanhã",
+      "inDays": "Em {count} dias"
+    }
+  },
+  "states": {
+    "loading": "Carregando conteúdo...",
+    "error": {
+      "title": "Algo deu errado",
+      "description": "Não foi possível carregar esta página. Tente novamente.",
+      "retry": "Tentar novamente"
     }
   }
 }

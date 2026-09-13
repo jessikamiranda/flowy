@@ -4,7 +4,7 @@ import { LogOut } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
-import { Button } from '@/components/ui/button'
+import { SidebarMenuButton } from '@/components/ui/sidebar'
 import { useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 
@@ -26,16 +26,15 @@ export function LogoutButton() {
   }
 
   return (
-    <Button
+    <SidebarMenuButton
       type="button"
-      variant="ghost"
       disabled={isPending}
       onClick={handleLogout}
-      className="w-full justify-start"
+      tooltip={t('auth.logout')}
     >
       <LogOut aria-hidden="true" />
 
       <span>{t('auth.logout')}</span>
-    </Button>
+    </SidebarMenuButton>
   )
 }

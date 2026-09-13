@@ -141,6 +141,13 @@
       "status": {
         "active": "Activo",
         "inactive": "Inactivo"
+      },
+      "empty": {
+        "title": "Aún no hay clientes",
+        "description": "Agrega tu primer cliente para comenzar a organizar proyectos y tareas."
+      },
+      "inline": {
+        "statusAriaLabel": "Cambiar estado de {client}"
       }
     },
     "actions": {
@@ -220,6 +227,17 @@
         "low": "Baja",
         "medium": "Media",
         "high": "Alta"
+      },
+      "empty": {
+        "title": "Aún no hay proyectos",
+        "description": "Crea tu primer proyecto y vincúlalo a un cliente.",
+        "noClientsTitle": "Agrega un cliente primero",
+        "noClientsDescription": "Los proyectos pertenecen a clientes, así que crea un cliente antes de iniciar un proyecto.",
+        "goToClients": "Ir a clientes"
+      },
+      "inline": {
+        "statusAriaLabel": "Cambiar estado de {project}",
+        "priorityAriaLabel": "Cambiar prioridad de {project}"
       }
     },
     "actions": {
@@ -313,6 +331,17 @@
         "low": "Baja",
         "medium": "Media",
         "high": "Alta"
+      },
+      "empty": {
+        "title": "Aún no hay tareas",
+        "description": "Crea tu primera tarea y comienza a seguir el trabajo pendiente.",
+        "noProjectsTitle": "Crea un proyecto primero",
+        "noProjectsDescription": "Las tareas pertenecen a proyectos, así que crea un proyecto antes de agregar tareas.",
+        "goToProjects": "Ir a proyectos"
+      },
+      "inline": {
+        "statusAriaLabel": "Cambiar estado de {task}",
+        "priorityAriaLabel": "Cambiar prioridad de {task}"
       }
     },
     "actions": {
@@ -365,6 +394,20 @@
       "description": "Esto eliminará permanentemente {task}. Esta acción no se puede deshacer.",
       "confirm": "Eliminar tarea",
       "deleting": "Eliminando..."
+    },
+    "deadline": {
+      "overdue": "Atrasada",
+      "today": "Vence hoy",
+      "tomorrow": "Mañana",
+      "inDays": "En {count} días"
+    }
+  },
+  "states": {
+    "loading": "Cargando contenido...",
+    "error": {
+      "title": "Algo salió mal",
+      "description": "No pudimos cargar esta página. Inténtalo de nuevo.",
+      "retry": "Intentar de nuevo"
     }
   }
 }

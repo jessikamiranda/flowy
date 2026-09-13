@@ -1,16 +1,24 @@
 'use client'
 
+import { ArrowRight, FolderKanban } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useMemo } from 'react'
+import { toast } from 'sonner'
 
 import {
   createDataTableColumnHelper,
   DataTable,
   DataTableColumnHeader,
+  EditableSelectCell,
 } from '@/components/data-table'
+import { EmptyState } from '@/components/states'
+import { buttonVariants } from '@/components/ui/button'
 import type { Client } from '@/features/clients/types/client'
+import { Link, useRouter } from '@/i18n/navigation'
 
+import { updateProjectInline } from '../actions/updateProjectInline'
 import type { Project } from '../types/project'
+import { NewProjectSheet } from './NewProjectSheet'
 import { ProjectRowActions } from './ProjectRowActions'
 
 type Props = {
@@ -29,6 +37,9 @@ function parseDatabaseDate(value: string) {
 export function ProjectsTable({ projects, clients }: Props) {
   const t = useTranslations('general.projects.table')
   const locale = useLocale()
+
+  const messagesT = useTranslations('general.projects.messages')
+  const router = useRouter()
 
   const dateFormatter = useMemo(
     () =>
@@ -94,29 +105,61 @@ export function ProjectsTable({ projects, clients }: Props) {
             <DataTableColumnHeader column={column} title={t('columns.status')} />
           ),
 
-          cell: ({ getValue }) => {
+          cell: ({ row, getValue }) => {
             const status = getValue()
 
             const styles = {
-              planning: 'bg-violet-500/10 text-violet-700 dark:text-violet-300',
-              in_progress: 'bg-blue-500/10 text-blue-700 dark:text-blue-300',
-              on_hold: 'bg-amber-500/10 text-amber-700 dark:text-amber-300',
-              completed: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300',
-            }
-
-            const labels = {
-              planning: t('status.planning'),
-              in_progress: t('status.inProgress'),
-              on_hold: t('status.onHold'),
-              completed: t('status.completed'),
+              planning:
+                'bg-violet-500/40 text-violet-800 hover:bg-violet-500/45! dark:text-violet-200',
+              in_progress:
+                'bg-blue-500/40 text-blue-800 hover:bg-blue-500/45! dark:text-blue-200',
+              on_hold:
+                'bg-amber-500/40 text-amber-800 hover:bg-amber-500/45! dark:text-amber-200',
+              completed:
+                'bg-emerald-500/40 text-emerald-800 hover:bg-emerald-500/45! dark:text-emerald-200',
             }
 
             return (
-              <span
-                className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-medium ${styles[status]}`}
-              >
-                {labels[status]}
-              </span>
+              <EditableSelectCell
+                value={status}
+                ariaLabel={t('inline.statusAriaLabel', {
+                  project: row.original.name,
+                })}
+                options={[
+                  {
+                    value: 'planning',
+                    label: t('status.planning'),
+                  },
+                  {
+                    value: 'in_progress',
+                    label: t('status.inProgress'),
+                  },
+                  {
+                    value: 'on_hold',
+                    label: t('status.onHold'),
+                  },
+                  {
+                    value: 'completed',
+                    label: t('status.completed'),
+                  },
+                ]}
+                className={`h-6! w-fit min-w-32 border-transparent px-2! font-medium [&_svg]:text-current [&_svg]:opacity-100 ${styles[status]}`}
+                onSave={async (value) => {
+                  const result = await updateProjectInline(row.original.id, {
+                    field: 'status',
+                    value,
+                  })
+
+                  if (!result.success) {
+                    throw new Error(result.error)
+                  }
+
+                  router.refresh()
+                }}
+                onSaveError={() => {
+                  toast.error(messagesT('updateError'))
+                }}
+              />
             )
           },
 
@@ -159,27 +202,53 @@ export function ProjectsTable({ projects, clients }: Props) {
             <DataTableColumnHeader column={column} title={t('columns.priority')} />
           ),
 
-          cell: ({ getValue }) => {
+          cell: ({ row, getValue }) => {
             const priority = getValue()
 
             const styles = {
-              low: 'bg-muted text-muted-foreground',
-              medium: 'bg-amber-500/10 text-amber-700 dark:text-amber-300',
-              high: 'bg-red-500/10 text-red-700 dark:text-red-300',
-            }
-
-            const labels = {
-              low: t('priority.low'),
-              medium: t('priority.medium'),
-              high: t('priority.high'),
+              low: 'bg-muted text-muted-foreground hover:bg-muted/80',
+              medium:
+                'bg-amber-500/40 text-amber-800 hover:bg-amber-500/45! dark:text-amber-200',
+              high: 'bg-red-500/40 text-red-800 hover:bg-red-500/45! dark:text-red-200',
             }
 
             return (
-              <span
-                className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${styles[priority]}`}
-              >
-                {labels[priority]}
-              </span>
+              <EditableSelectCell
+                value={priority}
+                ariaLabel={t('inline.priorityAriaLabel', {
+                  project: row.original.name,
+                })}
+                options={[
+                  {
+                    value: 'low',
+                    label: t('priority.low'),
+                  },
+                  {
+                    value: 'medium',
+                    label: t('priority.medium'),
+                  },
+                  {
+                    value: 'high',
+                    label: t('priority.high'),
+                  },
+                ]}
+                className={`h-6! w-fit min-w-28 border-transparent px-2! font-medium [&_svg]:text-current [&_svg]:opacity-100 ${styles[priority]}`}
+                onSave={async (value) => {
+                  const result = await updateProjectInline(row.original.id, {
+                    field: 'priority',
+                    value,
+                  })
+
+                  if (!result.success) {
+                    throw new Error(result.error)
+                  }
+
+                  router.refresh()
+                }}
+                onSaveError={() => {
+                  toast.error(messagesT('updateError'))
+                }}
+              />
             )
           },
 
@@ -280,8 +349,33 @@ export function ProjectsTable({ projects, clients }: Props) {
           },
         },
       ]),
-    [clients, dateFormatter, t],
+    [clients, dateFormatter, messagesT, router, t],
   )
+
+  if (projects.length === 0) {
+    const hasClients = clients.length > 0
+
+    return (
+      <EmptyState
+        icon={<FolderKanban aria-hidden="true" className="size-6" />}
+        title={hasClients ? t('empty.title') : t('empty.noClientsTitle')}
+        description={
+          hasClients ? t('empty.description') : t('empty.noClientsDescription')
+        }
+        action={
+          hasClients ? (
+            <NewProjectSheet clients={clients} />
+          ) : (
+            <Link href="/clients" className={buttonVariants()}>
+              {t('empty.goToClients')}
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          )
+        }
+        className="min-h-80"
+      />
+    )
+  }
 
   return (
     <DataTable

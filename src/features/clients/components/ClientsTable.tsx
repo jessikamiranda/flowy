@@ -1,16 +1,23 @@
 'use client'
 
+import { Building2 } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useMemo } from 'react'
+import { toast } from 'sonner'
 
 import {
   createDataTableColumnHelper,
   DataTable,
   DataTableColumnHeader,
+  EditableSelectCell,
 } from '@/components/data-table'
+import { EmptyState } from '@/components/states'
+import { useRouter } from '@/i18n/navigation'
 
+import { updateClientInline } from '../actions/updateClientInline'
 import type { Client } from '../types/client'
 import { ClientRowActions } from './ClientRowActions'
+import { NewClientSheet } from './NewClientSheet'
 
 type Props = {
   clients: Client[]
@@ -21,6 +28,9 @@ const columnHelper = createDataTableColumnHelper<Client>()
 export function ClientsTable({ clients }: Props) {
   const t = useTranslations('general.clients.table')
   const locale = useLocale()
+
+  const messagesT = useTranslations('general.clients.messages')
+  const router = useRouter()
 
   const dateFormatter = useMemo(
     () =>
@@ -102,19 +112,48 @@ export function ClientsTable({ clients }: Props) {
             <DataTableColumnHeader column={column} title={t('columns.status')} />
           ),
 
-          cell: ({ getValue }) => {
+          cell: ({ row, getValue }) => {
             const status = getValue()
 
+            const styles = {
+              active:
+                'bg-emerald-500/40 text-emerald-800 hover:bg-emerald-500/45! dark:text-emerald-200',
+              inactive: 'bg-muted text-muted-foreground hover:bg-muted/80',
+            }
+
             return (
-              <span
-                className={
-                  status === 'active'
-                    ? 'inline-flex rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-400'
-                    : 'inline-flex rounded-full bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground'
-                }
-              >
-                {status === 'active' ? t('status.active') : t('status.inactive')}
-              </span>
+              <EditableSelectCell
+                value={status}
+                ariaLabel={t('inline.statusAriaLabel', {
+                  client: row.original.name,
+                })}
+                options={[
+                  {
+                    value: 'active',
+                    label: t('status.active'),
+                  },
+                  {
+                    value: 'inactive',
+                    label: t('status.inactive'),
+                  },
+                ]}
+                className={`h-6! w-fit min-w-28 border-transparent px-2! font-medium [&_svg]:text-current [&_svg]:opacity-100 ${styles[status]}`}
+                onSave={async (value) => {
+                  const result = await updateClientInline(row.original.id, {
+                    field: 'status',
+                    value,
+                  })
+
+                  if (!result.success) {
+                    throw new Error(result.error)
+                  }
+
+                  router.refresh()
+                }}
+                onSaveError={() => {
+                  toast.error(messagesT('updateError'))
+                }}
+              />
             )
           },
 
@@ -180,8 +219,20 @@ export function ClientsTable({ clients }: Props) {
           },
         },
       ]),
-    [dateFormatter, t],
+    [dateFormatter, messagesT, router, t],
   )
+
+  if (clients.length === 0) {
+    return (
+      <EmptyState
+        icon={<Building2 aria-hidden="true" className="size-6" />}
+        title={t('empty.title')}
+        description={t('empty.description')}
+        action={<NewClientSheet />}
+        className="min-h-80"
+      />
+    )
+  }
 
   return (
     <DataTable
