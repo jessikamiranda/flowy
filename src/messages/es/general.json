@@ -9,8 +9,11 @@
       "password": "Contraseña",
       "loginButton": "Iniciar sesión",
       "showPassword": "Mostrar contraseña",
-      "hidePassword": "Ocultar contraseña"
-    }
+      "hidePassword": "Ocultar contraseña",
+      "invalidCredentials": "Correo electrónico o contraseña no válidos.",
+      "loginError": "No pudimos iniciar sesión. Inténtalo de nuevo."
+    },
+    "logout": "Cerrar sesión"
   },
   "fieldMessages": {
     "required": "Este campo es obligatorio.",
@@ -18,7 +21,8 @@
   },
   "navigation": {
     "main": "Principal",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "clients": "Clientes"
   },
   "dataTable": {
     "noResults": "Sin resultados.",
@@ -72,5 +76,75 @@
     "all": "Todos",
     "clear": "Limpiar filtros",
     "clearSearch": "Limpiar búsqueda"
+  },
+  "clients": {
+    "title": "Clientes",
+    "description": "Gestiona las empresas y contactos con los que trabajas.",
+    "clientCount": "{count, plural, =0 {Aún no hay clientes} =1 {# cliente} other {# clientes}}",
+    "table": {
+      "searchPlaceholder": "Buscar clientes...",
+      "columns": {
+        "contact": "Contacto",
+        "company": "Empresa",
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "status": "Estado",
+        "createdAt": "Agregado",
+        "actions": "Acciones"
+      },
+      "filters": {
+        "statusLabel": "Filtrar clientes por estado",
+        "statusPlaceholder": "Estado"
+      },
+      "status": {
+        "active": "Activo",
+        "inactive": "Inactivo"
+      }
+    },
+    "actions": {
+      "newClient": "Nuevo cliente",
+      "createClient": "Crear cliente",
+      "creating": "Creando...",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "openMenu": "Abrir acciones de {name}",
+      "saveChanges": "Guardar cambios",
+      "saving": "Guardando..."
+    },
+    "form": {
+      "title": "Agregar nuevo cliente",
+      "description": "Agrega los datos del cliente para comenzar a gestionar sus proyectos.",
+      "name": "Nombre del contacto",
+      "namePlaceholder": "Ej.: Olivia Martin",
+      "company": "Empresa",
+      "companyPlaceholder": "Ej.: Acme Studio",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "olivia@acme.com",
+      "phone": "Teléfono",
+      "phonePlaceholder": "+34 600 123 456",
+      "status": "Estado",
+      "statusOptions": {
+        "active": "Activo",
+        "inactive": "Inactivo"
+      }
+    },
+    "editForm": {
+      "title": "Editar cliente",
+      "description": "Actualiza los datos de {company}."
+    },
+    "deleteDialog": {
+      "title": "¿Eliminar cliente?",
+      "description": "Esto eliminará permanentemente {company}. Los proyectos y tareas vinculados a este cliente también se eliminarán. Esta acción no se puede deshacer.",
+      "confirm": "Eliminar cliente",
+      "deleting": "Eliminando..."
+    },
+    "messages": {
+      "createSuccess": "Cliente creado correctamente.",
+      "createError": "No pudimos crear el cliente. Inténtalo de nuevo.",
+      "updateSuccess": "Cliente actualizado correctamente.",
+      "updateError": "No pudimos actualizar el cliente. Inténtalo de nuevo.",
+      "deleteSuccess": "Cliente eliminado correctamente.",
+      "deleteError": "No pudimos eliminar el cliente. Inténtalo de nuevo."
+    }
   }
 }

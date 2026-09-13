@@ -3,16 +3,21 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 import { FormInput } from '@/components/form/FormInput/FormInput'
 import { Button } from '@/components/ui/button'
 import { FieldGroup } from '@/components/ui/field'
+import { useRouter } from '@/i18n/navigation'
+import { createClient } from '@/lib/supabase/client'
 
 import { getLoginSchema } from '../schemas/login.schema'
 import { AuthPage } from './AuthPage'
 
 export function LoginForm() {
   const t = useTranslations('general')
+  const router = useRouter()
+
   const loginSchema = getLoginSchema({
     required: t('fieldMessages.required'),
     invalidEmail: t('fieldMessages.invalidEmail'),
@@ -30,8 +35,26 @@ export function LoginForm() {
     },
   })
 
-  function onSubmit() {
-    return undefined
+  async function onSubmit(values: { email: string; password: string }) {
+    const supabase = createClient()
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email: values.email,
+      password: values.password,
+    })
+
+    if (error) {
+      if (error.code === 'invalid_credentials') {
+        toast.error(t('auth.form.invalidCredentials'))
+        return
+      }
+
+      toast.error(t('auth.form.loginError'))
+      return
+    }
+
+    router.replace('/dashboard')
+    router.refresh()
   }
 
   return (

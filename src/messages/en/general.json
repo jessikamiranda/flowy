@@ -9,8 +9,11 @@
       "password": "Password",
       "loginButton": "Log In",
       "showPassword": "Show password",
-      "hidePassword": "Hide password"
-    }
+      "hidePassword": "Hide password",
+      "invalidCredentials": "Invalid email or password.",
+      "loginError": "We couldn't sign you in. Please try again."
+    },
+    "logout": "Log out"
   },
   "fieldMessages": {
     "required": "This field is required.",
@@ -18,7 +21,8 @@
   },
   "navigation": {
     "main": "Main",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "clients": "Clients"
   },
   "dataTable": {
     "noResults": "No results.",
@@ -72,5 +76,75 @@
     "all": "All",
     "clear": "Clear filters",
     "clearSearch": "Clear search"
+  },
+  "clients": {
+    "title": "Clients",
+    "description": "Manage the companies and contacts you work with.",
+    "clientCount": "{count, plural, =0 {No clients yet} =1 {# client} other {# clients}}",
+    "table": {
+      "searchPlaceholder": "Search clients...",
+      "columns": {
+        "contact": "Contact",
+        "company": "Company",
+        "email": "Email",
+        "phone": "Phone",
+        "status": "Status",
+        "createdAt": "Added",
+        "actions": "Actions"
+      },
+      "filters": {
+        "statusLabel": "Filter clients by status",
+        "statusPlaceholder": "Status"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      }
+    },
+    "actions": {
+      "newClient": "New client",
+      "createClient": "Create client",
+      "creating": "Creating...",
+      "edit": "Edit",
+      "delete": "Delete",
+      "openMenu": "Open actions for {name}",
+      "saveChanges": "Save changes",
+      "saving": "Saving..."
+    },
+    "form": {
+      "title": "Add a new client",
+      "description": "Add the client details to start managing their projects.",
+      "name": "Contact name",
+      "namePlaceholder": "e.g. Olivia Martin",
+      "company": "Company",
+      "companyPlaceholder": "e.g. Acme Studio",
+      "email": "Email",
+      "emailPlaceholder": "olivia@acme.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 555 123 4567",
+      "status": "Status",
+      "statusOptions": {
+        "active": "Active",
+        "inactive": "Inactive"
+      }
+    },
+    "editForm": {
+      "title": "Edit client",
+      "description": "Update the details for {company}."
+    },
+    "deleteDialog": {
+      "title": "Delete client?",
+      "description": "This will permanently delete {company}. Any projects and tasks linked to this client will also be deleted. This action cannot be undone.",
+      "confirm": "Delete client",
+      "deleting": "Deleting..."
+    },
+    "messages": {
+      "createSuccess": "Client created successfully.",
+      "createError": "We couldn't create the client. Please try again.",
+      "updateSuccess": "Client updated successfully.",
+      "updateError": "We couldn't update the client. Please try again.",
+      "deleteSuccess": "Client deleted successfully.",
+      "deleteError": "We couldn't delete the client. Please try again."
+    }
   }
 }

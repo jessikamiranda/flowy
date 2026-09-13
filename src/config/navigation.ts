@@ -1,8 +1,8 @@
-import { LayoutDashboard, type LucideIcon } from 'lucide-react'
+import { Building2, LayoutDashboard, type LucideIcon } from 'lucide-react'
 
 export type AppNavigationItem = {
   href: string
-  labelKey: 'dashboard'
+  labelKey: 'dashboard' | 'clients'
   icon: LucideIcon
 }
 
@@ -19,6 +19,11 @@ export const appNavigationGroups: AppNavigationGroup[] = [
         href: '/dashboard',
         labelKey: 'dashboard',
         icon: LayoutDashboard,
+      },
+      {
+        href: '/clients',
+        labelKey: 'clients',
+        icon: Building2,
       },
     ],
   },

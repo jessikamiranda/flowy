@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -19,6 +20,7 @@ import {
 } from '@/components/ui/sidebar'
 import { appConfig } from '@/config/app'
 import { appNavigationGroups } from '@/config/navigation'
+import { LogoutButton } from '@/features/auth/components/LogoutButton'
 
 export function AppSidebar() {
   const locale = useLocale()
@@ -92,6 +94,10 @@ export function AppSidebar() {
           </SidebarGroup>
         ))}
       </SidebarContent>
+
+      <SidebarFooter>
+        <LogoutButton />
+      </SidebarFooter>
 
       <SidebarRail aria-label={tShell('toggleSidebar')} title={tShell('toggleSidebar')} />
     </Sidebar>
