@@ -14,6 +14,32 @@ Flowy is a client and project operations platform designed to help teams organiz
 
 The product combines client management, project tracking, task workflows, dashboard insights, filtering, inline editing, and responsive interfaces in a single workspace.
 
+## Screenshots
+
+### Dashboard
+
+![Flowy dashboard](docs/screenshots/dashboard.png)
+
+### Clients
+
+![Flowy clients](docs/screenshots/clients.png)
+
+### Projects
+
+![Flowy projects](docs/screenshots/projects.png)
+
+### Tasks
+
+![Flowy tasks](docs/screenshots/tasks.png)
+
+### Authentication
+
+![Flowy login](docs/screenshots/login.png)
+
+### Landing Page
+
+![Flowy landing page](docs/screenshots/landing.png)
+
 ## Features
 
 - Client management with status tracking and inline editing
