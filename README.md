@@ -164,4 +164,4 @@ Flowy was built as a portfolio project to demonstrate:
 
 Frontend Software Engineer focused on React, Next.js, TypeScript, and product-driven interfaces.
 
-- GitHub: [github.com/jessikamiranda](https://github.com/jessikamiranda)
+- LinkedIn: [linkedin.com/in/jessika-miranda](https://www.linkedin.com/in/jessika-miranda)
