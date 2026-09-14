@@ -41,19 +41,19 @@ export function DataTableToolbar<TData extends RowData>({
   }
 
   return (
-    <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between">
-      <div className="flex w-full flex-1 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+    <div className="flex flex-col items-start gap-2.5 rounded-[1.25rem] border border-border/60 bg-card/70 p-2.5 sm:flex-row sm:justify-between">
+      <div className="flex w-full flex-1 flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center">
         {enableGlobalSearch && (
-          <div className="relative w-full sm:w-72">
+          <div className="relative w-full sm:w-80">
             <Search
               aria-hidden="true"
-              className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground"
+              className="absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-muted-foreground/70"
             />
 
             <Input
               value={globalFilter}
               placeholder={searchPlaceholder ?? t('searchPlaceholder')}
-              className="h-9 pl-9"
+              className="h-10 rounded-xl border-transparent bg-muted/60 pr-4 pl-10 shadow-none transition-colors focus-visible:border-ring focus-visible:bg-card"
               onChange={(event) => {
                 table.setGlobalFilter(event.target.value)
               }}
@@ -70,6 +70,7 @@ export function DataTableToolbar<TData extends RowData>({
             type="button"
             variant="ghost"
             size="sm"
+            className="h-10 rounded-xl px-3 text-muted-foreground hover:text-foreground"
             onClick={() => {
               table.resetGlobalFilter(true)
               table.resetColumnFilters(true)

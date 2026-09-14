@@ -41,16 +41,22 @@ export function TasksTable({ tasks, projects }: Props) {
         columnHelper.accessor('title', {
           enableGlobalFilter: true,
 
+          size: 280,
+          minSize: 220,
+          maxSize: 440,
+
           header: ({ column }) => (
             <DataTableColumnHeader column={column} title={t('columns.task')} />
           ),
 
           cell: ({ row, getValue }) => (
-            <div className="min-w-52">
-              <p className="font-medium text-foreground">{getValue()}</p>
+            <div className="min-w-0">
+              <p className="truncate text-sm font-semibold tracking-[-0.01em] text-foreground">
+                {getValue()}
+              </p>
 
               {row.original.description && (
-                <p className="max-w-80 truncate text-sm text-muted-foreground">
+                <p className="mt-0.5 truncate text-xs text-muted-foreground">
                   {row.original.description}
                 </p>
               )}
@@ -77,7 +83,7 @@ export function TasksTable({ tasks, projects }: Props) {
               <div className="min-w-48">
                 <p className="font-medium text-foreground">{row.original.project.name}</p>
 
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   {row.original.project.client.company}
                 </p>
               </div>
@@ -100,10 +106,10 @@ export function TasksTable({ tasks, projects }: Props) {
             const status = getValue()
 
             const styles = {
-              todo: 'bg-muted text-muted-foreground hover:bg-muted/80',
+              todo: 'bg-muted! text-muted-foreground hover:bg-muted/80',
               in_progress:
-                'bg-blue-500/40 text-blue-800 hover:bg-blue-500/45! dark:text-blue-200',
-              done: 'bg-emerald-500/40 text-emerald-800 hover:bg-emerald-500/45! dark:text-emerald-200',
+                'bg-blue-500/40! text-blue-800 hover:bg-blue-500/45! dark:text-blue-200',
+              done: 'bg-emerald-500/40! text-emerald-800 hover:bg-emerald-500/45! dark:text-emerald-200',
             }
 
             return (
@@ -185,10 +191,10 @@ export function TasksTable({ tasks, projects }: Props) {
             const priority = getValue()
 
             const styles = {
-              low: 'bg-muted text-muted-foreground hover:bg-muted/80',
+              low: 'bg-muted! text-muted-foreground hover:bg-muted/80',
               medium:
-                'bg-amber-500/40 text-amber-800 hover:bg-amber-500/45! dark:text-amber-200',
-              high: 'bg-red-500/40 text-red-800 hover:bg-red-500/45! dark:text-red-200',
+                'bg-amber-500/40! text-amber-800 hover:bg-amber-500/45! dark:text-amber-200',
+              high: 'bg-red-500/40! text-red-800 hover:bg-red-500/45! dark:text-red-200',
             }
 
             return (

@@ -1,8 +1,9 @@
 'use client'
 
 import { useTheme } from '@teispace/next-themes'
-import { Monitor, Moon, Palette, Sun } from 'lucide-react'
+import { Monitor, Moon, Sun } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useSyncExternalStore } from 'react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -12,12 +13,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { appConfig, type ThemeMode } from '@/config/app'
-import { useColorTheme } from '@/hooks/useColorTheme'
-import { isColorTheme } from '@/theme/color-theme'
 import { isThemeMode } from '@/theme/theme-mode'
 
 const themeModes: {
@@ -38,27 +36,49 @@ const themeModes: {
   },
 ]
 
+const emptySubscribe = () => () => {}
+
+function useIsMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  )
+}
+
 export function ThemeSwitcher() {
   const t = useTranslations('general.themeSwitcher')
 
   const { theme, setTheme } = useTheme<ThemeMode>()
 
-  const { colorTheme, colorThemes, setColorTheme } = useColorTheme()
+  const mounted = useIsMounted()
 
-  const currentMode = isThemeMode(theme) ? theme : appConfig.theme.defaultMode
+  const currentMode = mounted && isThemeMode(theme) ? theme : appConfig.theme.defaultMode
+
+  const CurrentModeIcon =
+    currentMode === 'dark' ? Moon : currentMode === 'light' ? Sun : Monitor
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button type="button" variant="outline" size="sm" aria-label={t('label')} />
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            aria-label={t('label')}
+            className="size-9 rounded-xl border border-border/70 bg-card/70 text-muted-foreground shadow-none hover:bg-card hover:text-foreground"
+          />
         }
       >
-        <Palette aria-hidden="true" />
-        <span className="hidden sm:inline">{t('label')}</span>
+        {mounted ? (
+          <CurrentModeIcon aria-hidden="true" className="size-4" />
+        ) : (
+          <span aria-hidden="true" className="size-4" />
+        )}
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="w-56">
+      <DropdownMenuContent align="end" className="w-48 rounded-xl">
         <DropdownMenuGroup>
           <DropdownMenuLabel>{t('appearance')}</DropdownMenuLabel>
 
@@ -77,38 +97,6 @@ export function ThemeSwitcher() {
                 <Icon aria-hidden="true" />
 
                 {t(`modes.${value}`)}
-              </DropdownMenuRadioItem>
-            ))}
-          </DropdownMenuRadioGroup>
-        </DropdownMenuGroup>
-
-        <DropdownMenuSeparator />
-
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>{t('color')}</DropdownMenuLabel>
-
-          <DropdownMenuRadioGroup
-            value={colorTheme}
-            onValueChange={(value) => {
-              if (!isColorTheme(value)) {
-                return
-              }
-
-              setColorTheme(value)
-            }}
-          >
-            {colorThemes.map((value) => (
-              <DropdownMenuRadioItem key={value} value={value}>
-                <span
-                  aria-hidden="true"
-                  data-color-theme={value}
-                  className="size-3 rounded-full border border-black/10"
-                  style={{
-                    backgroundColor: 'var(--theme-primary)',
-                  }}
-                />
-
-                {t(`colors.${value}`)}
               </DropdownMenuRadioItem>
             ))}
           </DropdownMenuRadioGroup>

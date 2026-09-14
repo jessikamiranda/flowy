@@ -3,12 +3,12 @@ export const appConfig = {
   description: 'A modern client and project operations platform for teams',
 
   theme: {
-    defaultMode: 'system',
+    defaultMode: 'light',
     modeStorageKey: 'flowy-theme-mode',
 
-    colorThemes: ['neutral', 'blue', 'violet', 'rose', 'emerald'],
+    colorThemes: ['flowy'],
 
-    defaultColorTheme: 'violet',
+    defaultColorTheme: 'flowy',
     colorThemeStorageKey: 'flowy-theme-color',
   },
 

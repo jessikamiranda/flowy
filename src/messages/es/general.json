@@ -11,9 +11,21 @@
       "showPassword": "Mostrar contraseña",
       "hidePassword": "Ocultar contraseña",
       "invalidCredentials": "Correo electrónico o contraseña no válidos.",
-      "loginError": "No pudimos iniciar sesión. Inténtalo de nuevo."
+      "loginError": "No pudimos iniciar sesión. Inténtalo de nuevo.",
+      "eyebrow": "Bienvenido a Flowy",
+      "workspaceHint": "Un espacio para el trabajo que realmente importa."
     },
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "brandPanel": {
+      "eyebrow": "Operaciones con clientes",
+      "titleStart": "Mantén todo",
+      "titleAccent": "en movimiento.",
+      "description": "Clientes, proyectos y tareas en un espacio tranquilo diseñado para mantener el trabajo avanzando.",
+      "openTasks": "Tareas abiertas",
+      "projectsOnTrack": "Proyectos al día",
+      "clients": "Espacio de clientes",
+      "clientsDescription": "Todo conectado, nada disperso."
+    }
   },
   "fieldMessages": {
     "required": "Este campo es obligatorio.",
@@ -28,6 +40,7 @@
   },
   "dataTable": {
     "noResults": "Sin resultados.",
+    "noResultsDescription": "Intenta ajustar la búsqueda o los filtros para encontrar lo que buscas.",
     "selectAllRows": "Seleccionar todas las filas de esta página",
     "selectRow": "Seleccionar fila",
     "previousPage": "Página anterior",
@@ -107,6 +120,19 @@
       "low": "Baja",
       "medium": "Media",
       "high": "Alta"
+    },
+    "hero": {
+      "eyebrow": "Vista del espacio",
+      "title": "Mantén el trabajo",
+      "accent": "en movimiento.",
+      "description": "Una vista enfocada de los clientes, proyectos y tareas que necesitan tu atención."
+    },
+    "focus": {
+      "eyebrow": "Carga de trabajo",
+      "openTasks": "Tareas abiertas",
+      "dueSoon": "Vencen en los próximos 7 días",
+      "overdue": "Atrasadas",
+      "viewTasks": "Ver tareas"
     }
   },
   "confirmDialog": {
@@ -122,6 +148,7 @@
   "clients": {
     "title": "Clientes",
     "description": "Gestiona las empresas y contactos con los que trabajas.",
+    "eyebrow": "Workspace",
     "clientCount": "{count, plural, =0 {Aún no hay clientes} =1 {# cliente} other {# clientes}}",
     "table": {
       "searchPlaceholder": "Buscar clientes...",
@@ -199,6 +226,7 @@
   "projects": {
     "title": "Proyectos",
     "description": "Planifica y sigue los proyectos de clientes de principio a fin.",
+    "eyebrow": "Workspace",
     "projectCount": "{count, plural, =0 {Aún no hay proyectos} =1 {# proyecto} other {# proyectos}}",
     "table": {
       "searchPlaceholder": "Buscar proyectos...",
@@ -305,6 +333,7 @@
   "tasks": {
     "title": "Tareas",
     "description": "Organiza y sigue el trabajo de tus proyectos.",
+    "eyebrow": "Workspace",
     "taskCount": "{count, plural, =0 {Aún no hay tareas} =1 {# tarea} other {# tareas}}",
     "table": {
       "searchPlaceholder": "Buscar tareas...",
@@ -408,6 +437,87 @@
       "title": "Algo salió mal",
       "description": "No pudimos cargar esta página. Inténtalo de nuevo.",
       "retry": "Intentar de nuevo"
+    }
+  },
+  "landing": {
+    "navigation": {
+      "product": "Producto",
+      "workflow": "Flujo",
+      "features": "Funciones",
+      "login": "Entrar",
+      "cta": "Abrir espacio"
+    },
+    "hero": {
+      "eyebrow": "Operaciones con clientes, sin el caos",
+      "titleStart": "Mantén cada",
+      "titleAccent": "parte del trabajo",
+      "titleEnd": "en movimiento.",
+      "description": "Reúne clientes, proyectos y tareas en un espacio enfocado, diseñado para mantener el trabajo claro y avanzando.",
+      "primaryCta": "Abrir espacio",
+      "secondaryCta": "Explorar Flowy",
+      "note": "Menos trabajo disperso. Más progreso visible."
+    },
+    "workflow": {
+      "eyebrow": "Un flujo conectado",
+      "titleStart": "Desde la solicitud hasta",
+      "titleAccent": "terminado.",
+      "description": "Flowy mantiene cada capa del trabajo conectada para que el contexto acompañe al proyecto en lugar de perderse entre herramientas.",
+      "client": {
+        "label": "Clientes",
+        "title": "Empieza por la relación.",
+        "description": "Mantén personas, empresas y datos de contacto relacionados con el trabajo en un solo lugar."
+      },
+      "project": {
+        "label": "Proyectos",
+        "title": "Convierte el trabajo en un plan.",
+        "description": "Conecta cada proyecto con su cliente, prioridad, cronograma y etapa actual."
+      },
+      "task": {
+        "label": "Tareas",
+        "title": "Sabe qué viene después.",
+        "description": "Divide proyectos en tareas accionables con prioridades y fechas límite siempre visibles."
+      },
+      "progress": {
+        "label": "Progreso",
+        "title": "Mira el trabajo avanzar.",
+        "description": "Usa una vista operativa para detectar qué está activo, qué vence y qué necesita atención."
+      }
+    },
+    "features": {
+      "eyebrow": "Hecho para el trabajo entre el trabajo",
+      "titleStart": "Todo lo que necesitas para mantener",
+      "titleAccent": "el control.",
+      "description": "Flowy reúne los detalles operativos sin convertir tu espacio en otro sistema complicado de gestión de proyectos.",
+      "clients": {
+        "title": "Mantén cerca el contexto del cliente.",
+        "description": "Personas, empresas y contactos permanecen conectados con los proyectos a los que pertenecen."
+      },
+      "projects": {
+        "title": "Mira todo el proyecto de un vistazo.",
+        "description": "Sigue prioridad, estado, cronograma y contexto del cliente sin saltar entre herramientas."
+      },
+      "tasks": {
+        "title": "Fechas difíciles de ignorar.",
+        "description": "El trabajo próximo o atrasado permanece visible para que la siguiente acción siempre esté clara."
+      },
+      "inline": {
+        "title": "Actualiza el trabajo sin romper tu flujo.",
+        "description": "Cambia estados y prioridades directamente en la tabla sin abrir un formulario para cada pequeño cambio."
+      }
+    },
+    "finalCta": {
+      "eyebrow": "Listo cuando tú lo estés",
+      "titleStart": "Reúne el trabajo y mantenlo",
+      "titleAccent": "en movimiento.",
+      "description": "Clientes, proyectos y tareas pertenecen a un solo flujo operativo. Flowy mantiene el contexto conectado de principio a fin.",
+      "cta": "Abrir tu espacio",
+      "note": "Simple para empezar. Estructurado para crecer."
+    },
+    "footer": {
+      "tagline": "Un espacio tranquilo para operaciones con clientes y proyectos, diseñado para mantener el trabajo claro y avanzando.",
+      "copyright": "© {year} Flowy. Todos los derechos reservados.",
+      "credit": "Diseño y desarrollo por",
+      "viewSource": "Ver código"
     }
   }
 }

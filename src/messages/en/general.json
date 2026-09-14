@@ -11,9 +11,21 @@
       "showPassword": "Show password",
       "hidePassword": "Hide password",
       "invalidCredentials": "Invalid email or password.",
-      "loginError": "We couldn't sign you in. Please try again."
+      "loginError": "We couldn't sign you in. Please try again.",
+      "eyebrow": "Welcome to Flowy",
+      "workspaceHint": "One workspace for the work that matters."
     },
-    "logout": "Log out"
+    "logout": "Log out",
+    "brandPanel": {
+      "eyebrow": "Client operations",
+      "titleStart": "Keep everything",
+      "titleAccent": "in flow.",
+      "description": "Clients, projects and tasks in one calm workspace built to keep work moving.",
+      "openTasks": "Open tasks",
+      "projectsOnTrack": "Projects on track",
+      "clients": "Client workspace",
+      "clientsDescription": "Everything connected, nothing scattered."
+    }
   },
   "fieldMessages": {
     "required": "This field is required.",
@@ -28,6 +40,7 @@
   },
   "dataTable": {
     "noResults": "No results.",
+    "noResultsDescription": "Try adjusting your search or filters to find what you're looking for.",
     "selectAllRows": "Select all rows on this page",
     "selectRow": "Select row",
     "previousPage": "Previous page",
@@ -107,6 +120,19 @@
       "low": "Low",
       "medium": "Medium",
       "high": "High"
+    },
+    "hero": {
+      "eyebrow": "Workspace overview",
+      "title": "Keep work",
+      "accent": "moving.",
+      "description": "A focused view of the clients, projects and tasks that need your attention."
+    },
+    "focus": {
+      "eyebrow": "Workload",
+      "openTasks": "Open tasks",
+      "dueSoon": "Due in the next 7 days",
+      "overdue": "Overdue",
+      "viewTasks": "View tasks"
     }
   },
   "confirmDialog": {
@@ -122,6 +148,7 @@
   "clients": {
     "title": "Clients",
     "description": "Manage the companies and contacts you work with.",
+    "eyebrow": "Workspace",
     "clientCount": "{count, plural, =0 {No clients yet} =1 {# client} other {# clients}}",
     "table": {
       "searchPlaceholder": "Search clients...",
@@ -199,6 +226,7 @@
   "projects": {
     "title": "Projects",
     "description": "Plan and track client projects from start to finish.",
+    "eyebrow": "Workspace",
     "projectCount": "{count, plural, =0 {No projects yet} =1 {# project} other {# projects}}",
     "table": {
       "searchPlaceholder": "Search projects...",
@@ -305,6 +333,7 @@
   "tasks": {
     "title": "Tasks",
     "description": "Organize and track the work across your projects.",
+    "eyebrow": "Workspace",
     "taskCount": "{count, plural, =0 {No tasks yet} =1 {# task} other {# tasks}}",
     "table": {
       "searchPlaceholder": "Search tasks...",
@@ -408,6 +437,87 @@
       "title": "Something went wrong",
       "description": "We couldn't load this page. Please try again.",
       "retry": "Try again"
+    }
+  },
+  "landing": {
+    "navigation": {
+      "product": "Product",
+      "workflow": "Workflow",
+      "features": "Features",
+      "login": "Log in",
+      "cta": "Open workspace"
+    },
+    "hero": {
+      "eyebrow": "Client operations, without the chaos",
+      "titleStart": "Keep every",
+      "titleAccent": "moving part",
+      "titleEnd": "in flow.",
+      "description": "Bring clients, projects and tasks into one focused workspace designed to keep work clear and moving.",
+      "primaryCta": "Open workspace",
+      "secondaryCta": "Explore Flowy",
+      "note": "Less scattered work. More visible progress."
+    },
+    "workflow": {
+      "eyebrow": "One connected workflow",
+      "titleStart": "From client request to",
+      "titleAccent": "done.",
+      "description": "Flowy keeps every layer of the work connected, so context follows the project instead of disappearing across tools.",
+      "client": {
+        "label": "Clients",
+        "title": "Start with the relationship.",
+        "description": "Keep the people, companies and contact details behind the work in one clear place."
+      },
+      "project": {
+        "label": "Projects",
+        "title": "Turn work into a plan.",
+        "description": "Connect every project to its client, priority, timeline and current stage."
+      },
+      "task": {
+        "label": "Tasks",
+        "title": "Know what happens next.",
+        "description": "Break projects into actionable tasks with owners, priorities and deadlines that stay visible."
+      },
+      "progress": {
+        "label": "Progress",
+        "title": "See work move forward.",
+        "description": "Use one operational view to spot what is active, what is due and what needs attention."
+      }
+    },
+    "features": {
+      "eyebrow": "Built for the work between the work",
+      "titleStart": "Everything you need to stay",
+      "titleAccent": "in control.",
+      "description": "Flowy brings the operational details together without turning your workspace into another complicated project management system.",
+      "clients": {
+        "title": "Keep client context close.",
+        "description": "People, companies and contact details stay connected to the projects they belong to."
+      },
+      "projects": {
+        "title": "See the whole project at a glance.",
+        "description": "Track priority, status, timeline and client context without jumping between tools."
+      },
+      "tasks": {
+        "title": "Deadlines that are hard to miss.",
+        "description": "Upcoming and overdue work stays visible so the next action is always clear."
+      },
+      "inline": {
+        "title": "Update work without breaking your flow.",
+        "description": "Change statuses and priorities directly from the table instead of opening a form for every tiny update."
+      }
+    },
+    "finalCta": {
+      "eyebrow": "Ready when you are",
+      "titleStart": "Bring the work together and keep it",
+      "titleAccent": "moving.",
+      "description": "Clients, projects and tasks belong in one clear operational flow. Flowy keeps the context connected from start to finish.",
+      "cta": "Open your workspace",
+      "note": "Simple enough to start. Structured enough to grow."
+    },
+    "footer": {
+      "tagline": "A calm client and project operations workspace built to keep work clear and moving.",
+      "copyright": "© {year} Flowy. All rights reserved.",
+      "credit": "Designed & built by",
+      "viewSource": "View source"
     }
   }
 }

@@ -14,9 +14,10 @@ export default async function ProjectsPage() {
   ])
 
   return (
-    <PageContainer size="full">
-      <div className="space-y-6">
+    <PageContainer size="full" className="py-8 lg:py-10">
+      <div className="space-y-8">
         <PageHeader
+          eyebrow={t('eyebrow')}
           title={t('title')}
           description={t('description')}
           actions={<NewProjectSheet clients={clients} />}

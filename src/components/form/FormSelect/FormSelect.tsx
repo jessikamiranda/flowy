@@ -1,5 +1,6 @@
 'use client'
 
+import { cn } from 'cn'
 import { type ReactNode, useId } from 'react'
 import {
   type Control,
@@ -74,8 +75,13 @@ export function FormSelect<TFieldValues extends FieldValues>({
           typeof field.value === 'string' && field.value.length > 0 ? field.value : null
 
         return (
-          <Field data-invalid={fieldState.invalid || undefined}>
-            <FieldLabel htmlFor={fieldId}>{label}</FieldLabel>
+          <Field data-invalid={fieldState.invalid || undefined} className="gap-2">
+            <FieldLabel
+              htmlFor={fieldId}
+              className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-foreground"
+            >
+              {label}
+            </FieldLabel>
 
             <Select
               items={options}
@@ -89,14 +95,14 @@ export function FormSelect<TFieldValues extends FieldValues>({
                 id={fieldId}
                 ref={field.ref}
                 onBlur={field.onBlur}
-                className={className}
+                className={cn('w-full', className)}
                 aria-invalid={fieldState.invalid}
                 aria-describedby={describedBy || undefined}
               >
                 <SelectValue placeholder={placeholder} />
               </SelectTrigger>
 
-              <SelectContent>
+              <SelectContent className="rounded-2xl">
                 <SelectGroup>
                   {options.map((option) => (
                     <SelectItem

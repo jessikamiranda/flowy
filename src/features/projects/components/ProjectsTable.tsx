@@ -55,19 +55,31 @@ export function ProjectsTable({ projects, clients }: Props) {
         columnHelper.accessor('name', {
           enableGlobalFilter: true,
 
+          size: 260,
+          minSize: 220,
+          maxSize: 420,
+
           header: ({ column }) => (
             <DataTableColumnHeader column={column} title={t('columns.project')} />
           ),
 
           cell: ({ row, getValue }) => (
-            <div className="min-w-48">
-              <p className="font-medium text-foreground">{getValue()}</p>
+            <div className="flex min-w-0 items-center gap-3">
+              <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-accent text-xs font-bold uppercase text-primary">
+                {getValue().charAt(0)}
+              </div>
 
-              {row.original.description && (
-                <p className="max-w-72 truncate text-sm text-muted-foreground">
-                  {row.original.description}
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-sm font-semibold tracking-[-0.01em] text-foreground">
+                  {getValue()}
                 </p>
-              )}
+
+                {row.original.description && (
+                  <p className="mt-0.5 truncate text-xs text-muted-foreground">
+                    {row.original.description}
+                  </p>
+                )}
+              </div>
             </div>
           ),
 
@@ -89,7 +101,7 @@ export function ProjectsTable({ projects, clients }: Props) {
             <div className="min-w-40">
               <p className="font-medium text-foreground">{getValue()}</p>
 
-              <p className="text-sm text-muted-foreground">{row.original.client.name}</p>
+              <p className="text-xs text-muted-foreground">{row.original.client.name}</p>
             </div>
           ),
 
@@ -110,13 +122,13 @@ export function ProjectsTable({ projects, clients }: Props) {
 
             const styles = {
               planning:
-                'bg-violet-500/40 text-violet-800 hover:bg-violet-500/45! dark:text-violet-200',
+                'bg-violet-500/40! text-violet-800 hover:bg-violet-500/45! dark:text-violet-200',
               in_progress:
-                'bg-blue-500/40 text-blue-800 hover:bg-blue-500/45! dark:text-blue-200',
+                'bg-blue-500/40! text-blue-800 hover:bg-blue-500/45! dark:text-blue-200',
               on_hold:
-                'bg-amber-500/40 text-amber-800 hover:bg-amber-500/45! dark:text-amber-200',
+                'bg-amber-500/40! text-amber-800 hover:bg-amber-500/45! dark:text-amber-200',
               completed:
-                'bg-emerald-500/40 text-emerald-800 hover:bg-emerald-500/45! dark:text-emerald-200',
+                'bg-emerald-500/40! text-emerald-800 hover:bg-emerald-500/45! dark:text-emerald-200',
             }
 
             return (
@@ -206,10 +218,10 @@ export function ProjectsTable({ projects, clients }: Props) {
             const priority = getValue()
 
             const styles = {
-              low: 'bg-muted text-muted-foreground hover:bg-muted/80',
+              low: 'bg-muted! text-muted-foreground hover:bg-muted/80',
               medium:
-                'bg-amber-500/40 text-amber-800 hover:bg-amber-500/45! dark:text-amber-200',
-              high: 'bg-red-500/40 text-red-800 hover:bg-red-500/45! dark:text-red-200',
+                'bg-amber-500/40! text-amber-800 hover:bg-amber-500/45! dark:text-amber-200',
+              high: 'bg-red-500/40! text-red-800 hover:bg-red-500/45! dark:text-red-200',
             }
 
             return (

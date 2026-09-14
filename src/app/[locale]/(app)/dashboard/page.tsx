@@ -1,7 +1,8 @@
-import { Building2, CalendarClock, FolderKanban, ListTodo } from 'lucide-react'
+import { Building2, FolderKanban } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
 
-import { PageContainer, PageHeader } from '@/components/layout/page'
+import { PageContainer } from '@/components/layout/page'
+import { DashboardFocusCard } from '@/features/dashboard/components/DashboardFocusCard'
 import { DashboardMetricCard } from '@/features/dashboard/components/DashboardMetricCard'
 import { RecentProjects } from '@/features/dashboard/components/RecentProjects'
 import { UpcomingTasks } from '@/features/dashboard/components/UpcomingTasks'
@@ -17,55 +18,55 @@ export default async function DashboardPage() {
   ])
 
   return (
-    <PageContainer size="full">
+    <PageContainer size="full" className="py-8 lg:py-10">
       <div className="space-y-8">
-        <PageHeader title={t('title')} description={t('description')} />
+        <header className="max-w-3xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+            {t('hero.eyebrow')}
+          </p>
 
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <DashboardMetricCard
-            title={t('metrics.totalClients.title')}
-            value={metrics.totalClients}
-            description={t('metrics.totalClients.description')}
-            icon={Building2}
+          <h1 className="mt-3 text-4xl font-semibold tracking-[-0.055em] sm:text-5xl">
+            {t('hero.title')}{' '}
+            <span className="font-editorial font-normal italic text-primary">
+              {t('hero.accent')}
+            </span>
+          </h1>
+
+          <p className="mt-4 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
+            {t('hero.description')}
+          </p>
+        </header>
+
+        <div className="grid gap-4 xl:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)]">
+          <DashboardFocusCard
+            eyebrow={t('focus.eyebrow')}
+            openTasks={metrics.openTasks}
+            openTasksLabel={t('focus.openTasks')}
+            dueSoon={metrics.tasksDueSoon}
+            dueSoonLabel={t('focus.dueSoon')}
+            overdue={metrics.overdueTasks}
+            overdueLabel={t('focus.overdue')}
+            viewTasksLabel={t('focus.viewTasks')}
           />
 
-          <DashboardMetricCard
-            title={t('metrics.activeProjects.title')}
-            value={metrics.activeProjects}
-            description={t('metrics.activeProjects.description')}
-            icon={FolderKanban}
-          />
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+            <DashboardMetricCard
+              title={t('metrics.totalClients.title')}
+              value={metrics.totalClients}
+              description={t('metrics.totalClients.description')}
+              icon={Building2}
+            />
 
-          <DashboardMetricCard
-            title={t('metrics.openTasks.title')}
-            value={metrics.openTasks}
-            description={t('metrics.openTasks.description')}
-            icon={ListTodo}
-          />
-
-          <DashboardMetricCard
-            title={t('metrics.tasksDueSoon.title')}
-            value={metrics.tasksDueSoon}
-            description={t('metrics.tasksDueSoon.description')}
-            icon={CalendarClock}
-          />
+            <DashboardMetricCard
+              title={t('metrics.activeProjects.title')}
+              value={metrics.activeProjects}
+              description={t('metrics.activeProjects.description')}
+              icon={FolderKanban}
+            />
+          </div>
         </div>
 
-        <div className="grid gap-6 xl:grid-cols-2">
-          <RecentProjects
-            projects={overview.recentProjects}
-            title={t('recentProjects.title')}
-            description={t('recentProjects.description')}
-            emptyMessage={t('recentProjects.empty')}
-            viewAllLabel={t('viewAll')}
-            statusLabels={{
-              planning: t('status.planning'),
-              inProgress: t('status.inProgress'),
-              onHold: t('status.onHold'),
-              completed: t('status.completed'),
-            }}
-          />
-
+        <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
           <UpcomingTasks
             tasks={overview.upcomingTasks}
             locale={locale}
@@ -77,6 +78,20 @@ export default async function DashboardPage() {
               low: t('priority.low'),
               medium: t('priority.medium'),
               high: t('priority.high'),
+            }}
+          />
+
+          <RecentProjects
+            projects={overview.recentProjects}
+            title={t('recentProjects.title')}
+            description={t('recentProjects.description')}
+            emptyMessage={t('recentProjects.empty')}
+            viewAllLabel={t('viewAll')}
+            statusLabels={{
+              planning: t('status.planning'),
+              inProgress: t('status.inProgress'),
+              onHold: t('status.onHold'),
+              completed: t('status.completed'),
             }}
           />
         </div>

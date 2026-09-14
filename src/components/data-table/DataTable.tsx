@@ -10,7 +10,7 @@ import {
   type TableOptions,
   useTable,
 } from '@tanstack/react-table'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, SearchX } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { type ReactNode, useMemo, useState } from 'react'
 
@@ -278,7 +278,7 @@ export function DataTable<TData extends RowData>({
       : Math.min(firstVisibleRow + rows.length - 1, filteredRowCount)
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <DataTableToolbar
         table={table}
         enableGlobalSearch={enableGlobalSearch}
@@ -304,7 +304,7 @@ export function DataTable<TData extends RowData>({
         </DataTableBulkActions>
       )}
 
-      <div className="overflow-x-auto rounded-lg border">
+      <div className="overflow-hidden rounded-[1.5rem] border border-border/60 bg-card/90">
         <Table
           className="table-fixed"
           style={{
@@ -312,9 +312,12 @@ export function DataTable<TData extends RowData>({
             minWidth: '100%',
           }}
         >
-          <TableHeader>
+          <TableHeader className="bg-muted/35">
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
+              <TableRow
+                key={headerGroup.id}
+                className="border-border/60 hover:bg-transparent"
+              >
                 {headerGroup.headers.map((header) => {
                   const columnLabel =
                     header.column.columnDef.meta?.label ?? header.column.id
@@ -337,7 +340,7 @@ export function DataTable<TData extends RowData>({
                   return (
                     <TableHead
                       key={header.id}
-                      className="group relative"
+                      className="group relative h-11 px-4"
                       style={{
                         width: header.getSize(),
                       }}
@@ -393,7 +396,7 @@ export function DataTable<TData extends RowData>({
                               header.column.resetSize()
                             }
                           }}
-                          className="absolute top-0 right-0 h-full w-2 cursor-col-resize touch-none select-none bg-border opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                          className="absolute top-0 right-0 h-full w-1.5 cursor-col-resize touch-none select-none bg-primary/35 opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                         />
                       )}
                     </TableHead>
@@ -404,40 +407,47 @@ export function DataTable<TData extends RowData>({
           </TableHeader>
 
           <TableBody>
-            {rows.length > 0 ? (
-              rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() ? 'selected' : undefined}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
-                      style={{
-                        width: cell.column.getSize(),
-                      }}
-                    >
-                      <table.FlexRender cell={cell} />
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={table.getVisibleLeafColumns().length}
-                  className="h-24 text-center text-muted-foreground"
-                >
-                  {t('noResults')}
-                </TableCell>
+            {rows.map((row) => (
+              <TableRow
+                key={row.id}
+                data-state={row.getIsSelected() ? 'selected' : undefined}
+                className="group/row border-border/50 transition-colors hover:bg-muted/35 data-[state=selected]:bg-accent/55"
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell
+                    key={cell.id}
+                    className="overflow-hidden px-4 py-3.5"
+                    style={{
+                      width: cell.column.getSize(),
+                    }}
+                  >
+                    <table.FlexRender cell={cell} />
+                  </TableCell>
+                ))}
               </TableRow>
-            )}
+            ))}
           </TableBody>
         </Table>
+
+        {rows.length === 0 && (
+          <div className="flex min-h-72 flex-col items-center justify-center border-t border-border/60 px-6 py-14 text-center">
+            <div className="flex size-14 items-center justify-center rounded-2xl bg-accent text-primary">
+              <SearchX aria-hidden="true" className="size-5" />
+            </div>
+
+            <p className="mt-5 text-lg font-semibold tracking-[-0.025em]">
+              {t('noResults')}
+            </p>
+
+            <p className="mt-2 max-w-sm text-sm leading-6 text-muted-foreground">
+              {t('noResultsDescription')}
+            </p>
+          </div>
+        )}
       </div>
 
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex min-w-0 flex-col gap-1 text-sm text-muted-foreground">
+      <div className="flex items-center justify-between gap-4 px-1 pt-1">
+        <div className="flex min-w-0 flex-col gap-1 text-xs text-muted-foreground">
           <span>
             {hasActiveFilters
               ? t('filteredRecordsSummary', {
@@ -465,26 +475,28 @@ export function DataTable<TData extends RowData>({
         <div className="flex items-center gap-2">
           <Button
             type="button"
-            variant="outline"
+            variant="ghost"
             size="icon-sm"
             disabled={!table.getCanPreviousPage()}
             onClick={() => table.previousPage()}
             aria-label={t('previousPage')}
+            className="rounded-xl border border-border/60 bg-card/70 shadow-none hover:bg-card"
           >
             <ChevronLeft aria-hidden="true" />
           </Button>
 
-          <span className="min-w-16 text-center text-sm text-muted-foreground">
+          <span className="min-w-14 text-center text-xs font-medium text-muted-foreground">
             {table.state.pagination.pageIndex + 1} / {Math.max(table.getPageCount(), 1)}
           </span>
 
           <Button
             type="button"
-            variant="outline"
+            variant="ghost"
             size="icon-sm"
             disabled={!table.getCanNextPage()}
             onClick={() => table.nextPage()}
             aria-label={t('nextPage')}
+            className="rounded-xl border border-border/60 bg-card/70 shadow-none hover:bg-card"
           >
             <ChevronRight aria-hidden="true" />
           </Button>

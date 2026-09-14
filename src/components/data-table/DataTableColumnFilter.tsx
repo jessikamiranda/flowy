@@ -37,7 +37,7 @@ export function DataTableColumnFilter<TData extends RowData>({ column }: Props<T
         value={value}
         aria-label={filter.label}
         placeholder={filter.placeholder}
-        className="h-9 w-full sm:w-48"
+        className="h-10 w-full rounded-xl border-transparent bg-muted/60 px-4 shadow-none focus-visible:border-ring focus-visible:bg-card sm:w-48"
         onChange={(event) => {
           column.setFilterValue(event.target.value)
         }}
@@ -60,11 +60,14 @@ export function DataTableColumnFilter<TData extends RowData>({ column }: Props<T
         column.setFilterValue(nextValue)
       }}
     >
-      <SelectTrigger aria-label={filter.label} className="h-9 w-full sm:w-44">
+      <SelectTrigger
+        aria-label={filter.label}
+        className="h-10 w-full rounded-xl border-transparent bg-muted/60 px-3 shadow-none hover:bg-muted sm:w-44"
+      >
         <SelectValue placeholder={filter.placeholder} />
       </SelectTrigger>
 
-      <SelectContent>
+      <SelectContent className="rounded-2xl">
         <SelectItem value={ALL_FILTER_VALUE}>{t('all')}</SelectItem>
 
         {filter.options.map((option) => (

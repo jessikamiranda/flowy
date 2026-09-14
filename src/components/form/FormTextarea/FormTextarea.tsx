@@ -51,8 +51,13 @@ export function FormTextarea<TFieldValues extends FieldValues>({
           .join(' ')
 
         return (
-          <Field data-invalid={fieldState.invalid || undefined}>
-            <FieldLabel htmlFor={fieldId}>{label}</FieldLabel>
+          <Field data-invalid={fieldState.invalid || undefined} className="gap-2">
+            <FieldLabel
+              htmlFor={fieldId}
+              className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-foreground"
+            >
+              {label}
+            </FieldLabel>
 
             <Textarea
               {...textareaProps}

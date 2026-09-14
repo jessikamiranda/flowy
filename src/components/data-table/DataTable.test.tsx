@@ -239,7 +239,7 @@ describe('DataTable', () => {
     expect(screen.getByTestId('bulk-count')).toHaveTextContent('2')
   })
 
-  it('shows an empty state when no rows match', async () => {
+  it('shows an empty state outside the scrollable table when no rows match', async () => {
     const user = userEvent.setup()
 
     renderWithProviders(
@@ -250,7 +250,17 @@ describe('DataTable', () => {
 
     const table = screen.getByRole('table')
 
-    expect(within(table).getByText('No results.')).toBeInTheDocument()
+    expect(screen.getByText('No results.')).toBeInTheDocument()
+
+    expect(
+      screen.getByText(
+        "Try adjusting your search or filters to find what you're looking for.",
+      ),
+    ).toBeInTheDocument()
+
+    expect(within(table).queryByText('No results.')).not.toBeInTheDocument()
+
+    expect(screen.queryAllByTestId('name-cell')).toHaveLength(0)
   })
 
   it('resizes a column with the keyboard', async () => {

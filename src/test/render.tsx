@@ -8,6 +8,8 @@ const messages = {
   general: {
     dataTable: {
       noResults: 'No results.',
+      noResultsDescription:
+        "Try adjusting your search or filters to find what you're looking for.",
       selectAllRows: 'Select all rows on this page',
       selectRow: 'Select row',
       previousPage: 'Previous page',

@@ -1,17 +1,22 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { Geist_Mono, Inter } from 'next/font/google'
+import { Geist_Mono, Instrument_Serif, Manrope } from 'next/font/google'
 import { getLocale } from 'next-intl/server'
 
 import { Toaster } from '@/components/ui/toaster'
 import { appConfig } from '@/config/app'
 import { ThemeProvider } from '@/providers/ThemeProvider'
-import { colorThemeScript } from '@/theme/color-theme-script'
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-manrope',
+})
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-instrument-serif',
 })
 
 const geistMono = Geist_Mono({
@@ -37,19 +42,10 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${geistMono.variable}`}
+      className={`${manrope.variable} ${instrumentSerif.variable} ${geistMono.variable}`}
       data-color-theme={appConfig.theme.defaultColorTheme}
       suppressHydrationWarning
     >
-      <head>
-        <script
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{
-            __html: colorThemeScript,
-          }}
-        />
-      </head>
-
       <body>
         <ThemeProvider>
           {children}

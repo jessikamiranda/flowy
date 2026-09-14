@@ -46,12 +46,32 @@ export function ClientsTable({ clients }: Props) {
         columnHelper.accessor('name', {
           enableGlobalFilter: true,
 
+          size: 240,
+          minSize: 200,
+          maxSize: 380,
+
           header: ({ column }) => (
             <DataTableColumnHeader column={column} title={t('columns.contact')} />
           ),
 
-          cell: ({ getValue }) => (
-            <span className="font-medium text-foreground">{getValue()}</span>
+          cell: ({ row, getValue }) => (
+            <div className="flex min-w-0 items-center gap-3">
+              <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-accent text-xs font-bold uppercase text-primary">
+                {getValue().charAt(0)}
+              </div>
+
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-sm font-semibold tracking-[-0.01em] text-foreground">
+                  {getValue()}
+                </p>
+
+                {row.original.email && (
+                  <p className="mt-0.5 truncate text-xs text-muted-foreground">
+                    {row.original.email}
+                  </p>
+                )}
+              </div>
+            </div>
           ),
 
           meta: {

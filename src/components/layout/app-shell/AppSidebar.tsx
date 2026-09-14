@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
@@ -18,7 +19,6 @@ import {
   SidebarRail,
   useSidebar,
 } from '@/components/ui/sidebar'
-import { appConfig } from '@/config/app'
 import { appNavigationGroups } from '@/config/navigation'
 import { LogoutButton } from '@/features/auth/components/LogoutButton'
 
@@ -39,34 +39,57 @@ export function AppSidebar() {
 
   return (
     <Sidebar
+      variant="inset"
       collapsible="icon"
       mobileTitle={tShell('navigationTitle')}
       mobileDescription={tShell('navigationDescription')}
     >
-      <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              size="lg"
-              render={<Link href={`/${locale}/dashboard`} onClick={handleNavigate} />}
-              tooltip={appConfig.name.charAt(0).toUpperCase()}
-            >
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary font-semibold text-primary-foreground">
-                {appConfig.name.charAt(0).toUpperCase()}
-              </span>
+      <SidebarHeader className="px-4 py-1.5 group-data-[collapsible=icon]:px-2">
+        <Link
+          href={`/${locale}/dashboard`}
+          onClick={handleNavigate}
+          className="flex h-10 items-center group-data-[collapsible=icon]:justify-center"
+        >
+          <span className="group-data-[collapsible=icon]:hidden">
+            <Image
+              src="/brand/logo-color-black.svg"
+              alt="Flowy"
+              width={118}
+              height={34}
+              priority
+              className="h-7 w-auto dark:hidden"
+            />
 
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">{appConfig.name}</span>
-              </div>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+            <Image
+              src="/brand/logo-color-white.svg"
+              alt="Flowy"
+              width={118}
+              height={34}
+              priority
+              className="hidden h-7 w-auto dark:block"
+            />
+          </span>
+
+          <Image
+            src="/brand/app-icon-light.svg"
+            alt=""
+            width={32}
+            height={32}
+            aria-hidden="true"
+            className="hidden size-8 rounded-[10px] group-data-[collapsible=icon]:block"
+          />
+        </Link>
       </SidebarHeader>
 
       <SidebarContent>
         {appNavigationGroups.map((group) => (
-          <SidebarGroup key={group.labelKey}>
-            <SidebarGroupLabel>{t(group.labelKey)}</SidebarGroupLabel>
+          <SidebarGroup
+            key={group.labelKey}
+            className="px-3 py-2 group-data-[collapsible=icon]:px-2"
+          >
+            <SidebarGroupLabel className="px-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-sidebar-foreground/45">
+              {t(group.labelKey)}
+            </SidebarGroupLabel>
 
             <SidebarGroupContent>
               <SidebarMenu>
@@ -83,6 +106,7 @@ export function AppSidebar() {
                         isActive={isActive}
                         render={<Link href={href} onClick={handleNavigate} />}
                         tooltip={t(item.labelKey)}
+                        className="h-10 rounded-xl px-3 text-[13px] font-medium text-sidebar-foreground/65 transition-colors hover:bg-card/70 hover:text-sidebar-foreground data-active:bg-card data-active:text-foreground data-active:shadow-sm data-active:ring-1 data-active:ring-border/70 data-active:[&_svg]:text-primary"
                       >
                         <Icon aria-hidden="true" />
 
@@ -97,7 +121,7 @@ export function AppSidebar() {
         ))}
       </SidebarContent>
 
-      <SidebarFooter>
+      <SidebarFooter className="border-t border-sidebar-border/70 p-3 group-data-[collapsible=icon]:p-2">
         <LogoutButton />
       </SidebarFooter>
 

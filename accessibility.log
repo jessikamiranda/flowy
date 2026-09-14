@@ -1,0 +1,1037 @@
+
+Running 7 tests using 1 worker
+
+  ✓  1 [setup] › e2e/auth.setup.ts:5:6 › authenticate (3.9s)
+  ✘  2 [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/dashboard has no detectable WCAG A/AA violations across themes (1.6s)
+  ✘  3 [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/clients has no detectable WCAG A/AA violations across themes (2.0s)
+  ✘  4 [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/projects has no detectable WCAG A/AA violations across themes (1.4s)
+  ✘  5 [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/tasks has no detectable WCAG A/AA violations across themes (1.3s)
+  ✓  6 [chromium] › e2e/accessibility.spec.ts:105:7 › authenticated accessibility › primary button hover has accessible contrast across themes (1.5s)
+  ✘  7 [chromium] › e2e/accessibility.spec.ts:147:7 › login accessibility › login has no detectable WCAG A/AA violations across themes (1.6s)
+
+
+  1) [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/dashboard has no detectable WCAG A/AA violations across themes 
+
+    Error: /en/dashboard · light · flowy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 93
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#efebe2",
+    +               "contrastRatio": 2.78,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#908d87",
+    +               "fontSize": "7.5pt (10px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 2.78 (foreground color: #908d87, background color: #efebe2, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 2.78 (foreground color: #908d87, background color: #efebe2, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<div data-slot=\"sidebar-group-label\" data-sidebar=\"group-label\" class=\"flex h-8 shrink-0 it...\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".h-8",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#efebe2",
+    +               "contrastRatio": 4.28,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#706e69",
+    +               "fontSize": "9.8pt (13px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.28 (foreground color: #706e69, background color: #efebe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.28 (foreground color: #706e69, background color: #efebe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<span>Log out</span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "#base-ui-_R_fed5rkndlb_ > span",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      87 |         .analyze()
+      88 |
+    > 89 |       expect.soft(results.violations, `${route} · ${mode} · ${colorTheme}`).toEqual([])
+         |                                                                             ^
+      90 |     }
+      91 |   }
+      92 | }
+        at expectNoAccessibilityViolations (/Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:89:77)
+        at /Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:101:7
+
+    Error: /en/dashboard · dark · flowy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#1b1a18",
+    +               "contrastRatio": 4.17,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#7e7c77",
+    +               "fontSize": "7.5pt (10px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.17 (foreground color: #7e7c77, background color: #1b1a18, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.17 (foreground color: #7e7c77, background color: #1b1a18, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<div data-slot=\"sidebar-group-label\" data-sidebar=\"group-label\" class=\"flex h-8 shrink-0 it...\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".h-8",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      87 |         .analyze()
+      88 |
+    > 89 |       expect.soft(results.violations, `${route} · ${mode} · ${colorTheme}`).toEqual([])
+         |                                                                             ^
+      90 |     }
+      91 |   }
+      92 | }
+        at expectNoAccessibilityViolations (/Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:89:77)
+        at /Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:101:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/accessibility-authenticate-196da-AA-violations-across-themes-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/accessibility-authenticate-196da-AA-violations-across-themes-chromium/error-context.md
+
+  2) [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/clients has no detectable WCAG A/AA violations across themes 
+
+    Error: /en/clients · light · flowy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 93
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#efebe2",
+    +               "contrastRatio": 2.78,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#908d87",
+    +               "fontSize": "7.5pt (10px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 2.78 (foreground color: #908d87, background color: #efebe2, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 2.78 (foreground color: #908d87, background color: #efebe2, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<div data-slot=\"sidebar-group-label\" data-sidebar=\"group-label\" class=\"flex h-8 shrink-0 it...\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".h-8",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#efebe2",
+    +               "contrastRatio": 4.28,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#706e69",
+    +               "fontSize": "9.8pt (13px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.28 (foreground color: #706e69, background color: #efebe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.28 (foreground color: #706e69, background color: #efebe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<span>Log out</span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "#base-ui-_R_fed5rkndlb_ > span",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      87 |         .analyze()
+      88 |
+    > 89 |       expect.soft(results.violations, `${route} · ${mode} · ${colorTheme}`).toEqual([])
+         |                                                                             ^
+      90 |     }
+      91 |   }
+      92 | }
+        at expectNoAccessibilityViolations (/Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:89:77)
+        at /Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:101:7
+
+    Error: /en/clients · dark · flowy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#1b1a18",
+    +               "contrastRatio": 4.17,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#7e7c77",
+    +               "fontSize": "7.5pt (10px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.17 (foreground color: #7e7c77, background color: #1b1a18, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.17 (foreground color: #7e7c77, background color: #1b1a18, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<div data-slot=\"sidebar-group-label\" data-sidebar=\"group-label\" class=\"flex h-8 shrink-0 it...\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".h-8",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      87 |         .analyze()
+      88 |
+    > 89 |       expect.soft(results.violations, `${route} · ${mode} · ${colorTheme}`).toEqual([])
+         |                                                                             ^
+      90 |     }
+      91 |   }
+      92 | }
+        at expectNoAccessibilityViolations (/Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:89:77)
+        at /Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:101:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/accessibility-authenticate-45de2-AA-violations-across-themes-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/accessibility-authenticate-45de2-AA-violations-across-themes-chromium/error-context.md
+
+  3) [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/projects has no detectable WCAG A/AA violations across themes 
+
+    Error: /en/projects · light · flowy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 93
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#efebe2",
+    +               "contrastRatio": 2.78,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#908d87",
+    +               "fontSize": "7.5pt (10px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 2.78 (foreground color: #908d87, background color: #efebe2, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 2.78 (foreground color: #908d87, background color: #efebe2, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<div data-slot=\"sidebar-group-label\" data-sidebar=\"group-label\" class=\"flex h-8 shrink-0 it...\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".h-8",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#efebe2",
+    +               "contrastRatio": 4.28,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#706e69",
+    +               "fontSize": "9.8pt (13px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.28 (foreground color: #706e69, background color: #efebe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.28 (foreground color: #706e69, background color: #efebe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<span>Log out</span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "#base-ui-_R_fed5rkndlb_ > span",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      87 |         .analyze()
+      88 |
+    > 89 |       expect.soft(results.violations, `${route} · ${mode} · ${colorTheme}`).toEqual([])
+         |                                                                             ^
+      90 |     }
+      91 |   }
+      92 | }
+        at expectNoAccessibilityViolations (/Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:89:77)
+        at /Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:101:7
+
+    Error: /en/projects · dark · flowy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#1b1a18",
+    +               "contrastRatio": 4.17,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#7e7c77",
+    +               "fontSize": "7.5pt (10px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.17 (foreground color: #7e7c77, background color: #1b1a18, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.17 (foreground color: #7e7c77, background color: #1b1a18, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<div data-slot=\"sidebar-group-label\" data-sidebar=\"group-label\" class=\"flex h-8 shrink-0 it...\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".h-8",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      87 |         .analyze()
+      88 |
+    > 89 |       expect.soft(results.violations, `${route} · ${mode} · ${colorTheme}`).toEqual([])
+         |                                                                             ^
+      90 |     }
+      91 |   }
+      92 | }
+        at expectNoAccessibilityViolations (/Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:89:77)
+        at /Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:101:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/accessibility-authenticate-8c619-AA-violations-across-themes-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/accessibility-authenticate-8c619-AA-violations-across-themes-chromium/error-context.md
+
+  4) [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/tasks has no detectable WCAG A/AA violations across themes 
+
+    Error: /en/tasks · light · flowy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 93
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#efebe2",
+    +               "contrastRatio": 2.78,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#908d87",
+    +               "fontSize": "7.5pt (10px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 2.78 (foreground color: #908d87, background color: #efebe2, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 2.78 (foreground color: #908d87, background color: #efebe2, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<div data-slot=\"sidebar-group-label\" data-sidebar=\"group-label\" class=\"flex h-8 shrink-0 it...\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".h-8",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#efebe2",
+    +               "contrastRatio": 4.28,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#706e69",
+    +               "fontSize": "9.8pt (13px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.28 (foreground color: #706e69, background color: #efebe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.28 (foreground color: #706e69, background color: #efebe2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<span>Log out</span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "#base-ui-_R_fed5rkndlb_ > span",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      87 |         .analyze()
+      88 |
+    > 89 |       expect.soft(results.violations, `${route} · ${mode} · ${colorTheme}`).toEqual([])
+         |                                                                             ^
+      90 |     }
+      91 |   }
+      92 | }
+        at expectNoAccessibilityViolations (/Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:89:77)
+        at /Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:101:7
+
+    Error: /en/tasks · dark · flowy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#1b1a18",
+    +               "contrastRatio": 4.17,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#7e7c77",
+    +               "fontSize": "7.5pt (10px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.17 (foreground color: #7e7c77, background color: #1b1a18, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div data-sidebar=\"sidebar\" data-slot=\"sidebar-inner\" class=\"flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border\">",
+    +                 "target": Array [
+    +                   ".size-full",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.17 (foreground color: #7e7c77, background color: #1b1a18, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<div data-slot=\"sidebar-group-label\" data-sidebar=\"group-label\" class=\"flex h-8 shrink-0 it...\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".h-8",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      87 |         .analyze()
+      88 |
+    > 89 |       expect.soft(results.violations, `${route} · ${mode} · ${colorTheme}`).toEqual([])
+         |                                                                             ^
+      90 |     }
+      91 |   }
+      92 | }
+        at expectNoAccessibilityViolations (/Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:89:77)
+        at /Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:101:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/accessibility-authenticate-2b2b6-AA-violations-across-themes-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/accessibility-authenticate-2b2b6-AA-violations-across-themes-chromium/error-context.md
+
+  5) [chromium] › e2e/accessibility.spec.ts:147:7 › login accessibility › login has no detectable WCAG A/AA violations across themes 
+
+    Error: /en/login · light · flowy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 198
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#fffefb",
+    +               "contrastRatio": 4.49,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#79766e",
+    +               "fontSize": "10.5pt (14px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.49 (foreground color: #79766e, background color: #fffefb, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<section class=\"relative flex min-w-0 flex-1 flex-col rounded-[2rem] bg-card lg:max-w-[42rem]\">",
+    +                 "target": Array [
+    +                   ".bg-card",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.49 (foreground color: #79766e, background color: #fffefb, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<p class=\"mt-4 max-w-sm text-sm leading-6 text-muted-foreground\">Please enter your credentials to access your account.</p>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".mt-4",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#fffefb",
+    +               "contrastRatio": 4.49,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#79766e",
+    +               "fontSize": "8.3pt (11px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.49 (foreground color: #79766e, background color: #fffefb, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<section class=\"relative flex min-w-0 flex-1 flex-col rounded-[2rem] bg-card lg:max-w-[42rem]\">",
+    +                 "target": Array [
+    +                   ".bg-card",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.49 (foreground color: #79766e, background color: #fffefb, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<label data-slot=\"field-label\" class=\"items-center select-...\" for=\"_R_alaatpet5rkndlb_\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "label[for=\"_R_alaatpet5rkndlb_\"]",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#fffefb",
+    +               "contrastRatio": 4.49,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#79766e",
+    +               "fontSize": "8.3pt (11px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.49 (foreground color: #79766e, background color: #fffefb, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<section class=\"relative flex min-w-0 flex-1 flex-col rounded-[2rem] bg-card lg:max-w-[42rem]\">",
+    +                 "target": Array [
+    +                   ".bg-card",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.49 (foreground color: #79766e, background color: #fffefb, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<label data-slot=\"field-label\" class=\"items-center select-...\" for=\"_R_ilaatpet5rkndlb_\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "label[for=\"_R_ilaatpet5rkndlb_\"]",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#fffefb",
+    +               "contrastRatio": 4.49,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#79766e",
+    +               "fontSize": "7.5pt (10px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.49 (foreground color: #79766e, background color: #fffefb, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<section class=\"relative flex min-w-0 flex-1 flex-col rounded-[2rem] bg-card lg:max-w-[42rem]\">",
+    +                 "target": Array [
+    +                   ".bg-card",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.49 (foreground color: #79766e, background color: #fffefb, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<span class=\"text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground\">Flowy</span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".text-\\[10px\\]",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#fffefb",
+    +               "contrastRatio": 4.49,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#79766e",
+    +               "fontSize": "9.0pt (12px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.49 (foreground color: #79766e, background color: #fffefb, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<section class=\"relative flex min-w-0 flex-1 flex-col rounded-[2rem] bg-card lg:max-w-[42rem]\">",
+    +                 "target": Array [
+    +                   ".bg-card",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.49 (foreground color: #79766e, background color: #fffefb, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<p class=\"mt-5 text-center text-xs leading-5 text-muted-foreground\">One workspace for the work that matters.</p>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".leading-5",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      87 |         .analyze()
+      88 |
+    > 89 |       expect.soft(results.violations, `${route} · ${mode} · ${colorTheme}`).toEqual([])
+         |                                                                             ^
+      90 |     }
+      91 |   }
+      92 | }
+        at expectNoAccessibilityViolations (/Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:89:77)
+        at /Users/jessikamiranda/flowy/e2e/accessibility.spec.ts:150:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/accessibility-login-access-6aefd-AA-violations-across-themes-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/accessibility-login-access-6aefd-AA-violations-across-themes-chromium/error-context.md
+
+  5 failed
+    [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/dashboard has no detectable WCAG A/AA violations across themes 
+    [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/clients has no detectable WCAG A/AA violations across themes 
+    [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/projects has no detectable WCAG A/AA violations across themes 
+    [chromium] › e2e/accessibility.spec.ts:96:9 › authenticated accessibility › /en/tasks has no detectable WCAG A/AA violations across themes 
+    [chromium] › e2e/accessibility.spec.ts:147:7 › login accessibility › login has no detectable WCAG A/AA violations across themes 
+  2 passed (18.1s)
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m

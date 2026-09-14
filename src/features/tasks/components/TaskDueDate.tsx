@@ -18,18 +18,6 @@ function parseDatabaseDate(value: string) {
   return new Date(year, month - 1, day)
 }
 
-function startOfDay(date: Date) {
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate())
-}
-
-function differenceInDays(from: Date, to: Date) {
-  const millisecondsPerDay = 1000 * 60 * 60 * 24
-
-  return Math.round(
-    (startOfDay(to).getTime() - startOfDay(from).getTime()) / millisecondsPerDay,
-  )
-}
-
 export function TaskDueDate({ dueDate, status }: Props) {
   const t = useTranslations('general.tasks.deadline')
   const locale = useLocale()

@@ -31,6 +31,7 @@ export function LogoutButton() {
       disabled={isPending}
       onClick={handleLogout}
       tooltip={t('auth.logout')}
+      className="cursor-pointer h-10 rounded-xl px-3 text-[13px] font-medium text-sidebar-foreground hover:bg-destructive/10 hover:text-destructive"
     >
       <LogOut aria-hidden="true" />
 

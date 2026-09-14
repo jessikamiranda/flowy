@@ -114,8 +114,14 @@ export function FormDatePicker<T extends FieldValues>({
           <Field
             data-invalid={fieldState.invalid || undefined}
             data-disabled={disabled || undefined}
+            className="gap-2"
           >
-            <FieldLabel htmlFor={fieldId}>{label}</FieldLabel>
+            <FieldLabel
+              htmlFor={fieldId}
+              className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-foreground"
+            >
+              {label}
+            </FieldLabel>
 
             <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger
@@ -127,9 +133,12 @@ export function FormDatePicker<T extends FieldValues>({
                     disabled={disabled}
                     aria-invalid={fieldState.invalid}
                     aria-describedby={fieldState.error ? errorId : undefined}
-                    className="w-full justify-start font-normal"
+                    className="h-11 w-full justify-start rounded-xl border-input bg-card/70 px-3.5 font-normal shadow-none hover:bg-card dark:bg-background/45 dark:hover:bg-background/70"
                   >
-                    <CalendarIcon aria-hidden="true" className="text-muted-foreground" />
+                    <CalendarIcon
+                      aria-hidden="true"
+                      className="size-4 text-muted-foreground"
+                    />
 
                     <span className={selectedDate ? undefined : 'text-muted-foreground'}>
                       {selectedDate
@@ -140,7 +149,10 @@ export function FormDatePicker<T extends FieldValues>({
                 }
               />
 
-              <PopoverContent align="start" className="w-auto p-0">
+              <PopoverContent
+                align="start"
+                className="w-auto overflow-hidden rounded-2xl border-border/70 p-0 shadow-xl shadow-black/5"
+              >
                 <Calendar
                   mode="single"
                   selected={selectedDate}
@@ -159,43 +171,47 @@ export function FormDatePicker<T extends FieldValues>({
                   }}
                 />
 
-                <div className="grid grid-cols-2 gap-2 border-t p-3">
+                <div className="grid grid-cols-2 gap-2 border-t border-border/60 bg-muted/20 p-3">
                   <Button
                     type="button"
-                    variant="outline"
+                    variant="ghost"
                     size="sm"
                     disabled={isBeforeMinimumDate(today)}
                     onClick={() => setDate(today)}
+                    className="rounded-xl bg-card/70"
                   >
                     {t('today')}
                   </Button>
 
                   <Button
                     type="button"
-                    variant="outline"
+                    variant="ghost"
                     size="sm"
                     disabled={isBeforeMinimumDate(tomorrow)}
                     onClick={() => setDate(tomorrow)}
+                    className="rounded-xl bg-card/70"
                   >
                     {t('tomorrow')}
                   </Button>
 
                   <Button
                     type="button"
-                    variant="outline"
+                    variant="ghost"
                     size="sm"
                     disabled={isBeforeMinimumDate(inOneWeek)}
                     onClick={() => setDate(inOneWeek)}
+                    className="rounded-xl bg-card/70"
                   >
                     {t('inOneWeek')}
                   </Button>
 
                   <Button
                     type="button"
-                    variant="outline"
+                    variant="ghost"
                     size="sm"
                     disabled={isBeforeMinimumDate(endOfMonth)}
                     onClick={() => setDate(endOfMonth)}
+                    className="rounded-xl bg-card/70"
                   >
                     {t('endOfMonth')}
                   </Button>
@@ -204,7 +220,7 @@ export function FormDatePicker<T extends FieldValues>({
                     type="button"
                     variant="ghost"
                     size="sm"
-                    className="col-span-2"
+                    className="col-span-2 rounded-xl text-muted-foreground"
                     disabled={!selectedDate}
                     onClick={() => {
                       field.onChange('')

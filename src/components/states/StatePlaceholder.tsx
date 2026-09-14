@@ -23,33 +23,44 @@ export function StatePlaceholder({
   variant = 'default',
   titleAs: Title = 'h2',
 }: Props) {
+  const isDestructive = variant === 'destructive'
+
   return (
     <div
       className={cn(
-        'flex min-h-64 w-full flex-col items-center justify-center rounded-lg border border-dashed px-6 py-12 text-center',
-        variant === 'destructive' && 'border-destructive/30 bg-destructive/5',
+        'flex min-h-72 w-full flex-col items-center justify-center rounded-[1.5rem] bg-muted/25 px-6 py-14 text-center',
+        isDestructive && 'bg-destructive/5',
         className,
       )}
     >
       {icon && (
-        <div
-          className={cn(
-            'mb-4 flex size-12 items-center justify-center rounded-full bg-muted text-muted-foreground',
-            variant === 'destructive' && 'bg-destructive/10 text-destructive',
+        <div className="relative">
+          {!isDestructive && (
+            <span
+              aria-hidden="true"
+              className="absolute -right-1.5 -top-1.5 size-3 rounded-full bg-brand-lime ring-4 ring-background"
+            />
           )}
-        >
-          {icon}
+
+          <div
+            className={cn(
+              'flex size-14 items-center justify-center rounded-2xl bg-accent text-primary',
+              isDestructive && 'bg-destructive/10 text-destructive',
+            )}
+          >
+            {icon}
+          </div>
         </div>
       )}
 
-      <div className="max-w-md space-y-1.5">
-        <Title className="text-lg font-semibold">{title}</Title>
+      <div className={cn('max-w-md', icon && 'mt-5')}>
+        <Title className="text-lg font-semibold tracking-[-0.025em]">{title}</Title>
 
         {description && (
           <div
             className={cn(
-              'text-sm text-muted-foreground',
-              variant === 'destructive' && 'text-foreground/70',
+              'mt-2 text-sm leading-6 text-muted-foreground',
+              isDestructive && 'text-foreground/65',
             )}
           >
             {description}

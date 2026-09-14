@@ -59,13 +59,21 @@ export function LoginForm() {
 
   return (
     <AuthPage>
-      <h1 className="mb-4 text-4xl text-foreground md:text-5xl">
-        {t('auth.welcomeBack')}
-      </h1>
+      <div className="mb-9">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+          {t('auth.form.eyebrow')}
+        </p>
 
-      <p className="mb-12 text-foreground">{t('auth.loginDescription')}</p>
+        <h1 className="mt-3 text-4xl font-semibold tracking-[-0.055em] text-foreground sm:text-5xl">
+          {t('auth.welcomeBack')}
+        </h1>
 
-      <form noValidate className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
+        <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
+          {t('auth.loginDescription')}
+        </p>
+      </div>
+
+      <form noValidate className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup>
           <FormInput
             control={control}
@@ -93,11 +101,25 @@ export function LoginForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="mt-4 h-14 w-full rounded-full py-4 font-bold duration-300"
+          className="h-12 w-full rounded-xl font-semibold shadow-none"
         >
           {t('auth.form.loginButton')}
         </Button>
       </form>
+
+      <div className="mt-8 flex items-center gap-3">
+        <div className="h-px flex-1 bg-border/70" />
+
+        <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+          Flowy
+        </span>
+
+        <div className="h-px flex-1 bg-border/70" />
+      </div>
+
+      <p className="mt-5 text-center text-xs leading-5 text-muted-foreground">
+        {t('auth.form.workspaceHint')}
+      </p>
     </AuthPage>
   )
 }

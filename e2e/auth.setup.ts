@@ -32,11 +32,11 @@ setup('authenticate', async ({ page }) => {
 
   await expect(page).toHaveURL(/\/en\/dashboard$/)
 
-  await expect(
-    page.getByRole('heading', {
-      name: 'Dashboard',
-    }),
-  ).toBeVisible()
+  await page.waitForURL(/\/dashboard\/?$/, {
+    timeout: 10_000,
+  })
+
+  await expect(page).toHaveURL(/\/dashboard\/?$/)
 
   await page.context().storageState({
     path: authFile,

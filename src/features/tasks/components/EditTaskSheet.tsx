@@ -84,7 +84,7 @@ export function EditTaskSheet({ task, projects, open, onOpenChange }: Props) {
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className="w-full sm:max-w-lg">
+      <SheetContent className="w-full sm:max-w-[34rem]">
         <SheetHeader>
           <SheetTitle>{t('editForm.title')}</SheetTitle>
 
@@ -98,14 +98,19 @@ export function EditTaskSheet({ task, projects, open, onOpenChange }: Props) {
         <form
           id={formId}
           noValidate
-          className="flex-1 overflow-y-auto px-6"
+          className="flex-1 overflow-y-auto overscroll-contain bg-background/30 px-5 py-6 sm:px-6"
           onSubmit={handleSubmit(onSubmit)}
         >
           <TaskFormFields control={control} projects={projects} disabled={isSubmitting} />
         </form>
 
         <SheetFooter>
-          <Button type="submit" form={formId} disabled={isSubmitting} className="w-full">
+          <Button
+            type="submit"
+            form={formId}
+            disabled={isSubmitting}
+            className="h-11 w-full rounded-xl px-5 font-semibold shadow-none sm:w-auto sm:min-w-36"
+          >
             {isSubmitting ? t('actions.saving') : t('actions.saveChanges')}
           </Button>
         </SheetFooter>

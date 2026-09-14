@@ -55,14 +55,16 @@ export function ProjectRowActions({ project, clients }: Props) {
               aria-label={t('actions.openMenu', {
                 name: project.name,
               })}
+              className="rounded-lg text-muted-foreground opacity-55 transition-opacity hover:bg-muted hover:text-foreground hover:opacity-100 focus-visible:opacity-100 group-hover/row:opacity-100"
             >
               <MoreHorizontal aria-hidden="true" />
             </Button>
           }
         />
 
-        <DropdownMenuContent align="end">
+        <DropdownMenuContent align="end" className="w-40 rounded-xl">
           <DropdownMenuItem
+            className="rounded-lg"
             onClick={() => {
               setEditOpen(true)
             }}
@@ -72,6 +74,7 @@ export function ProjectRowActions({ project, clients }: Props) {
           </DropdownMenuItem>
 
           <DropdownMenuItem
+            className="rounded-lg"
             variant="destructive"
             onClick={() => {
               setDeleteOpen(true)

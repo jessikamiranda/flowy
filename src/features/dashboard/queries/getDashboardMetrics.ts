@@ -19,45 +19,61 @@ export async function getDashboardMetrics() {
   const todayString = serializeDate(today)
   const sevenDaysFromNowString = serializeDate(sevenDaysFromNow)
 
-  const [clientsResult, activeProjectsResult, openTasksResult, dueSoonResult] =
-    await Promise.all([
-      supabase.from('clients').select('*', {
+  const [
+    clientsResult,
+    activeProjectsResult,
+    openTasksResult,
+    dueSoonResult,
+    overdueResult,
+  ] = await Promise.all([
+    supabase.from('clients').select('*', {
+      count: 'exact',
+      head: true,
+    }),
+
+    supabase
+      .from('projects')
+      .select('*', {
         count: 'exact',
         head: true,
-      }),
+      })
+      .neq('status', 'completed'),
 
-      supabase
-        .from('projects')
-        .select('*', {
-          count: 'exact',
-          head: true,
-        })
-        .neq('status', 'completed'),
+    supabase
+      .from('tasks')
+      .select('*', {
+        count: 'exact',
+        head: true,
+      })
+      .neq('status', 'done'),
 
-      supabase
-        .from('tasks')
-        .select('*', {
-          count: 'exact',
-          head: true,
-        })
-        .neq('status', 'done'),
+    supabase
+      .from('tasks')
+      .select('*', {
+        count: 'exact',
+        head: true,
+      })
+      .neq('status', 'done')
+      .gte('due_date', todayString)
+      .lte('due_date', sevenDaysFromNowString),
 
-      supabase
-        .from('tasks')
-        .select('*', {
-          count: 'exact',
-          head: true,
-        })
-        .neq('status', 'done')
-        .gte('due_date', todayString)
-        .lte('due_date', sevenDaysFromNowString),
-    ])
+    supabase
+      .from('tasks')
+      .select('*', {
+        count: 'exact',
+        head: true,
+      })
+      .neq('status', 'done')
+      .not('due_date', 'is', null)
+      .lt('due_date', todayString),
+  ])
 
   const error =
     clientsResult.error ??
     activeProjectsResult.error ??
     openTasksResult.error ??
-    dueSoonResult.error
+    dueSoonResult.error ??
+    overdueResult.error
 
   if (error) {
     throw new Error(`Failed to fetch dashboard metrics: ${error.message}`)
@@ -68,5 +84,6 @@ export async function getDashboardMetrics() {
     activeProjects: activeProjectsResult.count ?? 0,
     openTasks: openTasksResult.count ?? 0,
     tasksDueSoon: dueSoonResult.count ?? 0,
+    overdueTasks: overdueResult.count ?? 0,
   }
 }

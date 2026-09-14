@@ -9,20 +9,24 @@ type Props = {
 
 export function DashboardMetricCard({ title, value, description, icon: Icon }: Props) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border bg-card p-6">
-      <div className="flex items-start justify-between gap-4">
-        <div className="space-y-3">
-          <p className="text-sm font-medium text-muted-foreground">{title}</p>
+    <section className="group rounded-[1.5rem] border border-border/60 bg-card/90 p-5 transition-colors hover:border-border sm:p-6">
+      <div className="flex items-start justify-between gap-5">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+            {title}
+          </p>
 
-          <p className="text-3xl font-semibold tracking-tight">{value}</p>
+          <p className="mt-5 text-4xl font-semibold tracking-[-0.05em]">{value}</p>
 
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <p className="mt-2 max-w-48 text-sm leading-relaxed text-muted-foreground">
+            {description}
+          </p>
         </div>
 
-        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-          <Icon aria-hidden="true" className="size-5" />
+        <div className="flex size-10 shrink-0 items-center justify-center rounded-2xl bg-accent text-primary transition-transform group-hover:-rotate-3">
+          <Icon aria-hidden="true" className="size-4" />
         </div>
       </div>
-    </div>
+    </section>
   )
 }

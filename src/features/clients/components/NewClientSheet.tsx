@@ -72,14 +72,14 @@ export function NewClientSheet() {
     <Sheet open={open} onOpenChange={handleOpenChange}>
       <SheetTrigger
         render={
-          <Button>
+          <Button className="h-10 rounded-xl px-4 font-semibold shadow-none [&_svg]:text-brand-lime">
             <Plus aria-hidden="true" />
             {t('actions.newClient')}
           </Button>
         }
       />
 
-      <SheetContent className="w-full sm:max-w-md">
+      <SheetContent className="w-full sm:max-w-[30rem]">
         <SheetHeader>
           <SheetTitle>{t('form.title')}</SheetTitle>
           <SheetDescription>{t('form.description')}</SheetDescription>
@@ -88,7 +88,7 @@ export function NewClientSheet() {
         <form
           id="new-client-form"
           noValidate
-          className="flex-1 overflow-y-auto px-6"
+          className="flex-1 overflow-y-auto overscroll-contain bg-background/30 px-5 py-6 sm:px-6"
           onSubmit={handleSubmit(onSubmit)}
         >
           <ClientFormFields control={control} disabled={isSubmitting} />
@@ -99,7 +99,7 @@ export function NewClientSheet() {
             type="submit"
             form="new-client-form"
             disabled={isSubmitting}
-            className="w-full"
+            className="h-11 w-full rounded-xl px-5 font-semibold shadow-none sm:w-auto sm:min-w-36"
           >
             {isSubmitting ? t('actions.creating') : t('actions.createClient')}
           </Button>

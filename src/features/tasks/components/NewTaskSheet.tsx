@@ -74,23 +74,21 @@ export function NewTaskSheet({ projects }: Props) {
     router.refresh()
   }
 
-  const projectOptions = projects.map((project) => ({
-    value: project.id,
-    label: `${project.name} · ${project.client.company}`,
-  }))
-
   return (
     <Sheet open={open} onOpenChange={handleOpenChange}>
       <SheetTrigger
         render={
-          <Button disabled={projects.length === 0}>
+          <Button
+            disabled={projects.length === 0}
+            className="h-10 rounded-xl px-4 font-semibold shadow-none [&_svg]:text-brand-lime"
+          >
             <Plus aria-hidden="true" />
             {t('actions.newTask')}
           </Button>
         }
       />
 
-      <SheetContent className="w-full sm:max-w-lg">
+      <SheetContent className="w-full sm:max-w-[34rem]">
         <SheetHeader>
           <SheetTitle>{t('form.title')}</SheetTitle>
           <SheetDescription>{t('form.description')}</SheetDescription>
@@ -99,7 +97,7 @@ export function NewTaskSheet({ projects }: Props) {
         <form
           id="new-task-form"
           noValidate
-          className="flex-1 overflow-y-auto px-6"
+          className="flex-1 overflow-y-auto overscroll-contain bg-background/30 px-5 py-6 sm:px-6"
           onSubmit={handleSubmit(onSubmit)}
         >
           <TaskFormFields control={control} projects={projects} disabled={isSubmitting} />
@@ -110,7 +108,7 @@ export function NewTaskSheet({ projects }: Props) {
             type="submit"
             form="new-task-form"
             disabled={isSubmitting}
-            className="w-full"
+            className="h-11 w-full rounded-xl px-5 font-semibold shadow-none sm:w-auto sm:min-w-36"
           >
             {isSubmitting ? t('actions.creating') : t('actions.createTask')}
           </Button>

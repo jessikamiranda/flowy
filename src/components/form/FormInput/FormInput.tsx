@@ -58,9 +58,14 @@ export function FormInput<T extends FieldValues>({
         <Field
           data-invalid={fieldState.invalid}
           data-disabled={disabled}
-          className="gap-1"
+          className="gap-2"
         >
-          <FieldLabel htmlFor={inputId}>{label}</FieldLabel>
+          <FieldLabel
+            htmlFor={inputId}
+            className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-foreground"
+          >
+            {label}
+          </FieldLabel>
 
           <div className="relative">
             <Input
@@ -91,12 +96,12 @@ export function FormInput<T extends FieldValues>({
                     ? (passwordVisibilityLabels?.hide ?? 'Hide password')
                     : (passwordVisibilityLabels?.show ?? 'Show password')
                 }
-                className="absolute top-1/2 right-5 -translate-y-1/2 cursor-pointer text-muted-foreground transition hover:text-foreground"
+                className="absolute top-1/2 right-3.5 flex size-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               >
                 {showPassword ? (
-                  <EyeOff className="size-5" aria-hidden="true" />
+                  <EyeOff className="size-4" aria-hidden="true" />
                 ) : (
-                  <Eye className="size-5" aria-hidden="true" />
+                  <Eye className="size-4" aria-hidden="true" />
                 )}
               </button>
             )}

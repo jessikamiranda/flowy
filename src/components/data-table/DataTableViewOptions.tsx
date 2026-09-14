@@ -31,12 +31,21 @@ export function DataTableViewOptions<TData extends RowData>({ table }: Props<TDa
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button type="button" variant="outline" size="sm" />}>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="h-10 rounded-xl border border-transparent bg-muted/60 px-3 text-muted-foreground shadow-none hover:bg-muted hover:text-foreground"
+          />
+        }
+      >
         <Columns3 aria-hidden="true" />
         {t('columns')}
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent align="end" className="w-48 rounded-2xl">
         <DropdownMenuGroup>
           <DropdownMenuLabel>{t('toggleColumns')}</DropdownMenuLabel>
 

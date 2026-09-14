@@ -18,6 +18,7 @@ export function AppSidebarTrigger() {
       size="icon"
       aria-label={t('toggleSidebar')}
       onClick={toggleSidebar}
+      className="size-9 rounded-xl border border-border/70 bg-card/70 text-muted-foreground shadow-none hover:bg-card hover:text-foreground"
     >
       <PanelLeft aria-hidden="true" />
     </Button>

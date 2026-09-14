@@ -32,12 +32,6 @@ async function disableVisualTransitions(page: Page) {
   })
 }
 
-async function waitForInitialAnimations(page: Page, route: string) {
-  if (route === '/en/login') {
-    await expect(page.locator('.relative.flex.min-h-screen')).toHaveCSS('opacity', '1')
-  }
-}
-
 async function applyTheme(page: Page, colorTheme: ColorTheme, mode: Mode) {
   const html = page.locator('html')
 
@@ -74,9 +68,11 @@ async function applyTheme(page: Page, colorTheme: ColorTheme, mode: Mode) {
 }
 
 async function expectNoAccessibilityViolations(page: Page, route: string) {
-  await page.goto(route)
+  await page.emulateMedia({
+    reducedMotion: 'reduce',
+  })
 
-  await waitForInitialAnimations(page, route)
+  await page.goto(route)
 
   await disableVisualTransitions(page)
 

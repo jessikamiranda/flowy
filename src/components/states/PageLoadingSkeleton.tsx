@@ -14,24 +14,28 @@ export function PageLoadingSkeleton({ variant }: Props) {
 
   if (variant === 'dashboard') {
     return (
-      <PageContainer size="full">
+      <PageContainer size="full" className="py-8 lg:py-10">
         <div className="space-y-8" role="status" aria-live="polite" aria-busy="true">
           <span className="sr-only">{t('loading')}</span>
 
-          <div className="space-y-2">
-            <Skeleton className="h-9 w-48" />
-            <Skeleton className="h-5 w-80 max-w-full" />
+          <div className="space-y-3">
+            <Skeleton className="h-3 w-32" />
+            <Skeleton className="h-12 w-96 max-w-full" />
+            <Skeleton className="h-5 w-[32rem] max-w-full" />
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <Skeleton key={index} className="h-36 rounded-2xl" />
-            ))}
+          <div className="grid gap-4 xl:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)]">
+            <Skeleton className="h-[25rem] rounded-[1.75rem]" />
+
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+              <Skeleton className="h-48 rounded-[1.5rem]" />
+              <Skeleton className="h-48 rounded-[1.5rem]" />
+            </div>
           </div>
 
-          <div className="grid gap-6 xl:grid-cols-2">
-            <Skeleton className="h-80 rounded-2xl" />
-            <Skeleton className="h-80 rounded-2xl" />
+          <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+            <Skeleton className="h-80 rounded-[1.5rem]" />
+            <Skeleton className="h-80 rounded-[1.5rem]" />
           </div>
         </div>
       </PageContainer>
