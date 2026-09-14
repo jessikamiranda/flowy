@@ -6,7 +6,7 @@ Built as a full-stack portfolio project focused on frontend architecture, produc
 
 ## Live Demo
 
-[flowy-black.vercel.app](https://flowy-black.vercel.app/pt)
+[Open Flowy](https://flowy-black.vercel.app/en)
 
 ## Overview
 
